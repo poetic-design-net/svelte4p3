@@ -1,0 +1,38 @@
+---
+import config from '@payload-config'
+import Layout from '~layouts/Layout.astro'
+import { getPayload } from 'payload'
+
+export async function getStaticPaths() {
+  const payload = await getPayload({ config })
+  const pageDocs = await payload.find({ collection: 'articles' })
+  return pageDocs.docs.map(({ meta: { title } = {}, slug }) => ({
+    params: { slug: slug === '' ? undefined : slug },
+    props: { text: title, title },
+  }))
+}
+
+const payload = await getPayload({ config })
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unused-vars
+const props = Astro.props
+
+const data = await payload.find({
+  collection: 'articles',
+  draft: true,
+  limit: 1,
+  where: { slug: { equals: Astro.params.slug } },
+})
+
+const doc = data.docs?.[0]
+
+if (!doc) {
+  return Astro.redirect('/404')
+}
+
+const { meta: { title } = {}, title: text } = doc
+---
+
+<Layout title={title ?? ''}>
+  <p>{text}</p>
+</Layout>

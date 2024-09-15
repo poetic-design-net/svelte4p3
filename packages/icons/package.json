@@ -1,0 +1,53 @@
+{
+  "name": "@local/icons",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.tsx",
+    "./*": "./src/*/index.tsx"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "prettier": "@local/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@local/eslint-config/base",
+      "@local/eslint-config/react"
+    ],
+    "root": true
+  },
+  "dependencies": {
+    "lucide-react": "^0.424.0",
+    "react": "catalog:next15",
+    "react-dom": "catalog:next15"
+  },
+  "devDependencies": {
+    "@local/eslint-config": "workspace:*",
+    "@local/prettier-config": "workspace:*",
+    "@local/storybook-config": "workspace:*",
+    "@local/tsconfig": "workspace:*",
+    "@storybook/react": "^8.3.0",
+    "@types/react": "catalog:next15",
+    "@types/react-dom": "catalog:next15",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.11",
+    "typescript": "^5.6.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "catalog:next15",
+      "@types/react-dom": "catalog:next15"
+    }
+  },
+  "overrides": {
+    "@types/react": "catalog:next15",
+    "@types/react-dom": "catalog:next15"
+  }
+}

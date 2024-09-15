@@ -1,0 +1,37 @@
+{
+  "name": "@local/tailwind-config",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/tailwind.ts"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@local/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@local/eslint-config/base"
+    ],
+    "root": true
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.11",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@local/eslint-config": "workspace:*",
+    "@local/prettier-config": "workspace:*",
+    "@local/tsconfig": "workspace:*",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
+  }
+}

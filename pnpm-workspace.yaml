@@ -1,0 +1,12 @@
+packages:
+  - apps/*
+  - packages/*
+  - tooling/*
+
+catalogs:
+  next15:
+    next: 15.0.0-canary.121
+    react: 19.0.0-rc-a960b92c-20240819
+    react-dom: 19.0.0-rc-a960b92c-20240819
+    '@types/react': npm:types-react@19.0.0-rc.0
+    '@types/react-dom': 'npm:types-react-dom@19.0.0-rc.0'

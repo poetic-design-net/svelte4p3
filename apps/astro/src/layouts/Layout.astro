@@ -1,0 +1,23 @@
+---
+type Props = {
+  description?: string
+  title: string
+}
+
+const { description, title } = Astro.props
+---
+
+<!doctype html>
+<html class="h-screen" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {description && <meta content="Astro description" name="description" />}
+    <meta content="width=device-width" name="viewport" />
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+    <meta content={Astro.generator} name="generator" />
+    <title>{title} | Payload Monorepo Template</title>
+  </head>
+  <body class="flex min-h-screen flex-col bg-gray-300">
+    <slot />
+  </body>
+</html>

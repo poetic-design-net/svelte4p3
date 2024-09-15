@@ -1,0 +1,37 @@
+import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
+import { type Preview } from '@storybook/react'
+
+import { preview as basePreview } from '@local/storybook-config'
+
+import '@local/storybook-config/style.css'
+import './style.css'
+import '@local/ui/styles.css'
+
+const parameters = {
+  ...basePreview.parameters,
+  options: {
+    ...(basePreview.parameters?.options ?? {}),
+    storySort: {
+      method: 'alphabetical',
+      order: [
+        'Layouts',
+        'Pages',
+        'Sections',
+        'Typography',
+        'Elements',
+        'Layout',
+        'Forms',
+        'Icons',
+      ],
+    },
+  },
+}
+
+const preview: Preview = {
+  ...basePreview,
+  parameters,
+}
+
+export default preview
+
+export const decorators = [cssVariablesTheme]

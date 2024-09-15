@@ -1,0 +1,90 @@
+{
+  "name": "@local/payload",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*.ts",
+    "./access/*": "./src/access/*/index.ts",
+    "./blocks/*": "./src/blocks/*/index.ts",
+    "./collections/*": "./src/collections/*/index.ts",
+    "./components/*": "./src/components/*/index.ts",
+    "./fields/*": "./src/fields/*/index.ts",
+    "./globals/*": "./src/globals/*/index.ts",
+    "./helpers/*": "./src/helpers/*/index.ts",
+    "./hooks/*": "./src/hooks/*/index.ts",
+    "./plugins/*": "./src/plugins/*/index.ts",
+    "./payload-types": "./src/payload.types.ts",
+    "./payload-config": "./src/payload.config.ts"
+  },
+  "scripts": {
+    "clean": "rm -rf node_modules .pnpm-lock.yaml",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ./.prettierignore",
+    "generate:types": "PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
+    "lint": "eslint .",
+    "reinstall": "pnpm clean && pnpm i",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "prettier": "@local/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@local/eslint-config/base",
+      "@local/eslint-config/react"
+    ],
+    "ignorePatterns": [
+      "src/payload.types.ts"
+    ],
+    "root": true
+  },
+  "dependencies": {
+    "@local/env": "workspace:*",
+    "@local/svg": "workspace:*",
+    "@local/ui": "workspace:*",
+    "@local/utils": "workspace:*",
+    "@payloadcms/db-mongodb": "3.0.0-beta.104",
+    "@payloadcms/db-sqlite": "3.0.0-beta.104",
+    "@payloadcms/graphql": "3.0.0-beta.104",
+    "@payloadcms/live-preview-react": "3.0.0-beta.104",
+    "@payloadcms/plugin-nested-docs": "3.0.0-beta.104",
+    "@payloadcms/plugin-redirects": "3.0.0-beta.104",
+    "@payloadcms/plugin-seo": "3.0.0-beta.104",
+    "@payloadcms/richtext-lexical": "3.0.0-beta.104",
+    "@payloadcms/ui": "3.0.0-beta.104",
+    "next": "catalog:next15",
+    "payload": "3.0.0-beta.104",
+    "react": "catalog:next15",
+    "react-dom": "catalog:next15",
+    "sharp": "^0.33.5",
+    "ts-pattern": "^5.3.1"
+  },
+  "devDependencies": {
+    "@local/eslint-config": "workspace:*",
+    "@local/prettier-config": "workspace:*",
+    "@local/tsconfig": "workspace:*",
+    "@local/types": "workspace:*",
+    "@types/react": "catalog:next15",
+    "@types/react-dom": "catalog:next15",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "catalog:next15",
+      "@types/react-dom": "catalog:next15"
+    }
+  },
+  "overrides": {
+    "@types/react": "catalog:next15",
+    "@types/react-dom": "catalog:next15"
+  },
+  "watch": {
+    "generate:types": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts,tsx",
+      "quiet": false
+    }
+  }
+}
