@@ -40,12 +40,6 @@
     "tailwindcss": "^3.4.11",
     "typescript": "^5.6.2"
   },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "catalog:next15",
-      "@types/react-dom": "catalog:next15"
-    }
-  },
   "overrides": {
     "@types/react": "catalog:next15",
     "@types/react-dom": "catalog:next15"

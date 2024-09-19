@@ -37,20 +37,20 @@
     "@local/env": "workspace:*",
     "@local/payload": "workspace:*",
     "@local/ui": "workspace:*",
-    "@payloadcms/db-mongodb": "3.0.0-beta.104",
-    "@payloadcms/db-sqlite": "3.0.0-beta.104",
-    "@payloadcms/graphql": "3.0.0-beta.104",
-    "@payloadcms/live-preview-react": "3.0.0-beta.104",
-    "@payloadcms/next": "3.0.0-beta.104",
-    "@payloadcms/plugin-nested-docs": "3.0.0-beta.104",
-    "@payloadcms/plugin-redirects": "3.0.0-beta.104",
-    "@payloadcms/plugin-seo": "3.0.0-beta.104",
-    "@payloadcms/richtext-lexical": "3.0.0-beta.104",
+    "@payloadcms/db-mongodb": "3.0.0-beta.107",
+    "@payloadcms/db-sqlite": "3.0.0-beta.107",
+    "@payloadcms/graphql": "3.0.0-beta.107",
+    "@payloadcms/live-preview-react": "3.0.0-beta.107",
+    "@payloadcms/next": "3.0.0-beta.107",
+    "@payloadcms/plugin-nested-docs": "3.0.0-beta.107",
+    "@payloadcms/plugin-redirects": "3.0.0-beta.107",
+    "@payloadcms/plugin-seo": "3.0.0-beta.107",
+    "@payloadcms/richtext-lexical": "3.0.0-beta.107",
     "babel-plugin-react-compiler": "^0.0.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.9.0",
     "next": "catalog:next15",
-    "payload": "3.0.0-beta.104",
+    "payload": "3.0.0-beta.107",
     "react": "catalog:next15",
     "react-dom": "catalog:next15",
     "sharp": "^0.33.5"
@@ -73,12 +73,6 @@
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "catalog:next15",
-      "@types/react-dom": "catalog:next15"
-    }
   },
   "overrides": {
     "@types/react": "catalog:next15",

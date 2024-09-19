@@ -3,6 +3,8 @@ import config from '@payload-config'
 import Layout from '~layouts/Layout.astro'
 import { getPayload } from 'payload'
 
+export const prerender = true
+
 export async function getStaticPaths() {
   const payload = await getPayload({ config })
   const pageDocs = await payload.find({ collection: 'pages' })
