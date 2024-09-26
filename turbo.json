@@ -4,6 +4,7 @@
   "globalEnv": [
     "CI",
     "NODE_ENV",
+    "NEXT_PUBLIC_APP_ENV",
     "NEXT_PUBLIC_PAYLOAD_URL",
     "PAYLOAD_PRIVATE_DATABASE_URI",
     "PAYLOAD_PRIVATE_SECRET",

@@ -1,13 +1,13 @@
 import { createEnv } from '@t3-oss/env-nextjs'
 import { z } from 'zod'
 
-import { skipValidation } from '@local/env/helpers/skipValidation'
+import { baseConfig } from '@local/env/helpers/baseConfig'
 
 export const env = createEnv({
+  ...baseConfig,
   client: {
     NEXT_PUBLIC_PAYLOAD_URL: z.string(),
   },
-  emptyStringAsUndefined: true,
   // eslint-disable-next-line @typescript-eslint/naming-convention
   experimental__runtimeEnv: {
     NEXT_PUBLIC_PAYLOAD_URL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
@@ -20,5 +20,4 @@ export const env = createEnv({
     PAYLOAD_PRIVATE_REVALIDATION_KEY: z.string(),
     PAYLOAD_PRIVATE_SECRET: z.string(),
   },
-  skipValidation,
 })

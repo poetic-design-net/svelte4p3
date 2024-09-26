@@ -7,11 +7,11 @@ export const env = createEnv({
   ...baseConfig,
   // eslint-disable-next-line @typescript-eslint/naming-convention
   experimental__runtimeEnv: {
-    NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_APP_ENV: process.env.NEXT_PUBLIC_APP_ENV,
   },
   shared: {
-    NODE_ENV: z
-      .enum(['development', 'production', 'test'])
-      .default('development'),
+    NEXT_PUBLIC_APP_ENV: z
+      .enum(['production', 'staging', 'local'])
+      .default('local'),
   },
 })
