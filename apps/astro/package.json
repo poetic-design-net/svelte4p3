@@ -13,28 +13,6 @@
     "typecheck": "tsc --noEmit"
   },
   "prettier": "@local/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "@local/eslint-config/base",
-      "@local/eslint-config/astro"
-    ],
-    "rules": {
-      "consistent-return": [
-        "off"
-      ],
-      "import/extensions": [
-        "warn",
-        "never",
-        {
-          "astro": "always"
-        }
-      ],
-      "import/no-unresolved": "off"
-    },
-    "ignorePatterns": [
-      "src/env.d.ts"
-    ]
-  },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/node": "^8.3.4",

@@ -13,16 +13,6 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "prettier": "@local/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "@local/eslint-config/base",
-      "@local/eslint-config/react"
-    ],
-    "ignorePatterns": [
-      "sst-env.d.ts"
-    ],
-    "root": true
-  },
   "dependencies": {
     "@local/ui": "workspace:*",
     "css-loader": "^6.11.0",

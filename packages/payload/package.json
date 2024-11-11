@@ -26,16 +26,6 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "prettier": "@local/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "@local/eslint-config/base",
-      "@local/eslint-config/react"
-    ],
-    "ignorePatterns": [
-      "src/payload.types.ts"
-    ],
-    "root": true
-  },
   "dependencies": {
     "@local/env": "workspace:*",
     "@local/svg": "workspace:*",

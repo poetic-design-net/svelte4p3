@@ -22,17 +22,6 @@
     "typecheck": "tsc --noEmit"
   },
   "prettier": "@local/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "@local/eslint-config/base",
-      "@local/eslint-config/nextjs"
-    ],
-    "ignorePatterns": [
-      "next-env.d.ts",
-      "src/payload.types.ts",
-      "src/app/(payload)/**/*"
-    ]
-  },
   "dependencies": {
     "@local/env": "workspace:*",
     "@local/payload": "workspace:*",
