@@ -1,15 +1,24 @@
 import type { TextField } from 'payload'
 import { deepMerge } from 'payload'
 
-type TitleField = (overrides?: Partial<TextField>) => TextField
+export type TextFieldOverrides = {
+  titleOverrides?: Partial<TextField>
+}
 
-export const titleField: TitleField = overrides =>
-  deepMerge<TextField, Partial<TextField>>(
+type TitleField = (overrides?: TextFieldOverrides) => [TextField]
+
+export const titleField: TitleField = (overrides = {}) => {
+  const { titleOverrides = {} } = overrides
+
+  const titleField = deepMerge<TextField, TextField>(
     {
       label: 'Name',
       name: 'title',
       required: true,
       type: 'text',
     },
-    overrides ?? {},
+    titleOverrides,
   )
+
+  return [titleField]
+}

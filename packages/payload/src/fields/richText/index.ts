@@ -1,4 +1,9 @@
-import type { FeatureProviderServer } from '@payloadcms/richtext-lexical'
+import type {
+  FeatureProviderServer,
+  LexicalEditorProps,
+  LexicalRichTextAdapter,
+} from '@payloadcms/richtext-lexical'
+import type { SerializedEditorState } from 'lexical'
 import type { RichTextField } from 'payload'
 import {
   HTMLConverterFeature,
@@ -6,18 +11,27 @@ import {
 } from '@payloadcms/richtext-lexical'
 import { deepMerge } from 'payload'
 
+type LexicalRichTextField = RichTextField<
+  SerializedEditorState,
+  LexicalRichTextAdapter,
+  LexicalEditorProps
+>
+
+export type RichTextFieldOverrides = {
+  richTextOverrides?: Partial<LexicalRichTextField>
+}
+
 type RichText = (
-  overrides?: Partial<RichTextField>,
+  overrides?: RichTextFieldOverrides,
   additions?: {
     features?: FeatureProviderServer[]
   },
-) => RichTextField
+) => [RichTextField]
 
-export const richTextField: RichText = (
-  overrides,
-  additions = { features: [] },
-) =>
-  deepMerge<RichTextField, Partial<RichTextField>>(
+export const richTextField: RichText = (overrides = {}, additions = {}) => {
+  const { richTextOverrides = {} } = overrides
+
+  const richTextField = deepMerge<LexicalRichTextField, LexicalRichTextField>(
     {
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [
@@ -29,5 +43,8 @@ export const richTextField: RichText = (
       name: 'richText',
       type: 'richText',
     },
-    overrides ?? {},
+    richTextOverrides,
   )
+
+  return [richTextField]
+}

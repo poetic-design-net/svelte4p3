@@ -1,12 +1,23 @@
 import type { CheckboxField } from 'payload'
 import { deepMerge } from 'payload'
 
-type HideFromIndexingField = (
-  overrides?: Partial<CheckboxField>,
-) => CheckboxField
+export type HideFromIndexingFieldOverrides = {
+  hideFromIndexingOverrides?: Partial<CheckboxField>
+}
 
-export const hideFromIndexingField: HideFromIndexingField = overrides =>
-  deepMerge<CheckboxField, Partial<CheckboxField>>(
+type HideFromIndexingField = (
+  overrides?: HideFromIndexingFieldOverrides,
+) => [CheckboxField]
+
+export const hideFromIndexingField: HideFromIndexingField = (
+  overrides = {},
+) => {
+  const { hideFromIndexingOverrides = {} } = overrides
+
+  const hideFromIndexingField = deepMerge<
+    CheckboxField,
+    Partial<CheckboxField>
+  >(
     {
       admin: {
         position: 'sidebar',
@@ -15,5 +26,8 @@ export const hideFromIndexingField: HideFromIndexingField = overrides =>
       name: 'hideFromIndexing',
       type: 'checkbox',
     },
-    overrides ?? {},
+    hideFromIndexingOverrides,
   )
+
+  return [hideFromIndexingField]
+}
