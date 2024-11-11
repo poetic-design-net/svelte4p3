@@ -14,14 +14,15 @@ export const config = {
   runtime: 'node',
 }
 
-export const load: PageLoad = async ({ params }) => {
+/** @type {import('./$types').PageData} */
+export const load: PageLoad = async () => {
   const config = configurePayload()
   const payload = await getPayload({ config })
   const data = await payload.find({
     collection: 'pages',
     draft: true,
     limit: 1,
-    where: { pathname: { equals: `/${params.slug}` } },
+    where: { pathname: { equals: `/` } },
   })
 
   const [doc] = data.docs

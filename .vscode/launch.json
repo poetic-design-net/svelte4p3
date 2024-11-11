@@ -7,6 +7,14 @@
         "group": "Astro + Payload"
       },
       "stopAll": true
+    },
+    {
+      "configurations": ["Svelte", "Payload"],
+      "name": "Svelte + Payload",
+      "presentation": {
+        "group": "Svelte + Payload"
+      },
+      "stopAll": true
     }
   ],
   "configurations": [
@@ -14,7 +22,6 @@
       "command": "pnpm dev --filter astro...",
       "cwd": "${workspaceFolder}/",
       "name": "Astro",
-      "preLaunchTask": "pnpm install",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "type": "node-terminal"
@@ -23,7 +30,14 @@
       "command": "pnpm dev --filter payload...",
       "cwd": "${workspaceFolder}/",
       "name": "Payload",
-      "preLaunchTask": "pnpm install",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node-terminal"
+    },
+    {
+      "command": "pnpm dev --filter svelte...",
+      "cwd": "${workspaceFolder}/",
+      "name": "Svelte",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "type": "node-terminal"
@@ -32,7 +46,6 @@
       "command": "pnpm storybook --filter docs...",
       "cwd": "${workspaceFolder}/",
       "name": "Docs",
-      "preLaunchTask": "pnpm install",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "type": "node-terminal"
