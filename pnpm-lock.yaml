@@ -245,7 +245,7 @@ importers:
         version: 3.0.0-beta.108(monaco-editor@0.51.0)(next@15.0.3(babel-plugin-react-compiler@0.0.0)(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(sass@1.77.4))(payload@3.0.0-beta.108(graphql@16.9.0)(monaco-editor@0.51.0)(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(typescript@5.6.3))(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(types-react@19.0.0-rc.0)(typescript@5.6.3)
       '@payloadcms/richtext-lexical':
         specifier: 3.0.0-beta.108
-        version: 3.0.0-beta.108(sr3gp6bsmxpqaaip3gm2uqnt5a)
+        version: 3.0.0-beta.108(uekqpxv4hrw52pjraazxup4j5m)
       babel-plugin-react-compiler:
         specifier: ^0.0.0
         version: 0.0.0
@@ -428,10 +428,13 @@ importers:
         version: 3.0.0-beta.108(monaco-editor@0.51.0)(next@15.0.3(babel-plugin-react-compiler@0.0.0)(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(sass@1.77.4))(payload@3.0.0-beta.108(graphql@16.9.0)(monaco-editor@0.51.0)(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(typescript@5.6.3))(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(types-react@19.0.0-rc.0)(typescript@5.6.3)
       '@payloadcms/richtext-lexical':
         specifier: 3.0.0-beta.108
-        version: 3.0.0-beta.108(sr3gp6bsmxpqaaip3gm2uqnt5a)
+        version: 3.0.0-beta.108(uekqpxv4hrw52pjraazxup4j5m)
       '@payloadcms/ui':
         specifier: 3.0.0-beta.108
         version: 3.0.0-beta.108(monaco-editor@0.51.0)(next@15.0.3(babel-plugin-react-compiler@0.0.0)(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(sass@1.77.4))(payload@3.0.0-beta.108(graphql@16.9.0)(monaco-editor@0.51.0)(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(typescript@5.6.3))(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(types-react@19.0.0-rc.0)(typescript@5.6.3)
+      lexical:
+        specifier: 0.18.0
+        version: 0.18.0
       next:
         specifier: catalog:next15
         version: 15.0.3(@babel/core@7.26.0)(babel-plugin-react-compiler@0.0.0)(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(sass@1.77.4)
@@ -8250,6 +8253,9 @@ packages:
   lexical@0.17.0:
     resolution: {integrity: sha512-cCFmANO5rIf34NF0go/hxp5S3V5Z8G2Rsa1FJy50qF2WM5EJNJ/MqN75TApjfgMkfrbO6gau3X12nCqwsT7aDg==}
 
+  lexical@0.18.0:
+    resolution: {integrity: sha512-3K/B0RpzjoW+Wj2E455wWXxkqxqK8UgdIiuqkOqdOsoSSo5mCkHOU6eVw7Nlmlr1MFvAMzGmz4RPn8NZaLQ2Mw==}
+
   lib0@0.2.97:
     resolution: {integrity: sha512-Q4d1ekgvufi9FiHkkL46AhecfNjznSL9MRNoJRQ76gBHS9OqU2ArfQK0FvBpuxgWeJeNI0LVgAYMIpsGeX4gYg==}
     engines: {node: '>=16'}
@@ -15500,7 +15506,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@payloadcms/richtext-lexical@3.0.0-beta.108(sr3gp6bsmxpqaaip3gm2uqnt5a)':
+  '@payloadcms/richtext-lexical@3.0.0-beta.108(uekqpxv4hrw52pjraazxup4j5m)':
     dependencies:
       '@faceless-ui/modal': 3.0.0-beta.2(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)
       '@faceless-ui/scroll-info': 2.0.0-beta.0(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)
@@ -15521,7 +15527,7 @@ snapshots:
       bson-objectid: 2.0.4
       dequal: 2.0.3
       escape-html: 1.0.3
-      lexical: 0.17.0
+      lexical: 0.18.0
       payload: 3.0.0-beta.108(graphql@16.9.0)(monaco-editor@0.51.0)(react-dom@19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919))(react@19.0.0-rc-e740d4b1-20240919)(typescript@5.6.3)
       react: 19.0.0-rc-e740d4b1-20240919
       react-dom: 19.0.0-rc-e740d4b1-20240919(react@19.0.0-rc-e740d4b1-20240919)
@@ -21790,6 +21796,8 @@ snapshots:
       type-check: 0.4.0
 
   lexical@0.17.0: {}
+
+  lexical@0.18.0: {}
 
   lib0@0.2.97:
     dependencies:
