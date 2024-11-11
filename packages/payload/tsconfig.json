@@ -20,6 +20,5 @@
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
   "exclude": ["node_modules", "src/payload.types.ts", ".next"],
-  "extends": "@local/tsconfig/base.json",
-  "include": ["*.ts", "./src"]
+  "extends": "@local/tsconfig/base.json"
 }

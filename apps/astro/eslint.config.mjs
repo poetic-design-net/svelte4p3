@@ -1,1 +1,1 @@
-export { default } from '@local/eslint-config/react'
+export { default } from '@local/eslint-config/astro'

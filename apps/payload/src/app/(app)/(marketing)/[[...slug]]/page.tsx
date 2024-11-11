@@ -9,10 +9,10 @@ import config from '@local/payload/payload-config'
 import { Preview } from './preview'
 
 type ContentPageProps = {
-  params: { slug?: string[] }
-  searchParams: {
+  params: Promise<{ slug?: string[] }>
+  searchParams: Promise<{
     isLivePreview?: string
-  }
+  }>
 }
 
 const getPage = cache(async (slug?: string[], isLivePreview?: boolean) => {
@@ -35,9 +35,11 @@ const getPages = cache(async () => {
 })
 
 export const generateMetadata = async ({
-  params: { slug },
-  searchParams: { isLivePreview },
+  params,
+  searchParams,
 }: ContentPageProps): Promise<Metadata> => {
+  const { slug } = await params
+  const { isLivePreview } = await searchParams
   const page = await getPage(slug, Boolean(isLivePreview))
 
   if (!page?.meta) {
@@ -48,7 +50,7 @@ export const generateMetadata = async ({
 }
 
 export const generateStaticParams = async (): Promise<
-  NonNullable<ContentPageProps['params']>[]
+  Awaited<NonNullable<ContentPageProps['params']>>[]
 > => {
   const pages = await getPages()
 
@@ -59,10 +61,9 @@ export const generateStaticParams = async (): Promise<
     }))
 }
 
-const ContentPage: FC<ContentPageProps> = async ({
-  params: { slug },
-  searchParams: { isLivePreview },
-}) => {
+const ContentPage: FC<ContentPageProps> = async ({ params, searchParams }) => {
+  const { slug } = await params
+  const { isLivePreview } = await searchParams
   const page = await getPage(slug, Boolean(isLivePreview))
 
   if (!page) {

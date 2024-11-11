@@ -1,5 +1,5 @@
+import type { Preview } from '@storybook/react'
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
-import { type Preview } from '@storybook/react'
 
 import { preview as basePreview } from '@local/storybook-config'
 
@@ -9,8 +9,9 @@ import '@local/ui/styles.css'
 
 const parameters = {
   ...basePreview.parameters,
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   options: {
-    ...(basePreview.parameters?.options ?? {}),
+    ...basePreview.parameters?.options,
     storySort: {
       method: 'alphabetical',
       order: [
