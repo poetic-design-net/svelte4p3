@@ -4,6 +4,6 @@
   "enginesNode": true,
   "format": ["group", "repo", "time"],
   "packageManager": "pnpm",
-  "peer": true,
+  "peer": false,
   "target": "semver"
 }

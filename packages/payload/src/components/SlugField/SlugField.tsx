@@ -12,7 +12,7 @@ import {
   useFormFields,
 } from '@payloadcms/ui'
 
-import { formatSlug } from '@local/payload/helpers/formatSlug'
+import { createSlug } from '@local/utils/createSlug'
 
 import './index.scss'
 
@@ -57,7 +57,7 @@ export const SlugField: FC<SlugFieldProps> = ({
   useEffect(() => {
     if (checkboxValue) {
       if (fieldToUseValue) {
-        const formattedSlug = formatSlug(fieldToUseValue)
+        const formattedSlug = createSlug(fieldToUseValue)
 
         if (value !== formattedSlug) setValue(formattedSlug)
       } else if (value !== '') {

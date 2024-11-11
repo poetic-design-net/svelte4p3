@@ -1,10 +1,18 @@
 import type { DateField } from 'payload'
 import { deepMerge } from 'payload'
 
-type PublishedDateField = (overrides?: Partial<DateField>) => DateField
+export type PublishedDateFieldOverrides = {
+  publishedDateOverrides?: Partial<DateField>
+}
 
-export const publishedDateField: PublishedDateField = overrides =>
-  deepMerge<DateField, Partial<DateField>>(
+type PublishedDateField = (
+  overrides?: PublishedDateFieldOverrides,
+) => [DateField]
+
+export const publishedDateField: PublishedDateField = (overrides = {}) => {
+  const { publishedDateOverrides = {} } = overrides
+
+  const publishedDateField = deepMerge<DateField, Partial<DateField>>(
     {
       admin: {
         position: 'sidebar',
@@ -13,5 +21,8 @@ export const publishedDateField: PublishedDateField = overrides =>
       name: 'publishedDate',
       type: 'date',
     },
-    overrides ?? {},
+    publishedDateOverrides,
   )
+
+  return [publishedDateField]
+}

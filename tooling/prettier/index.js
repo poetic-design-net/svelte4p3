@@ -16,7 +16,6 @@ const config = {
   useTabs: false,
   plugins: [
     '@ianvs/prettier-plugin-sort-imports',
-    'prettier-plugin-astro',
     'prettier-plugin-packagejson',
     'prettier-plugin-sort-json',
     'prettier-plugin-tailwindcss',
@@ -42,14 +41,6 @@ const config = {
   ],
   importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
   importOrderTypeScriptVersion: '5.5.3',
-  overrides: [
-    {
-      files: '*.astro',
-      options: {
-        parser: 'astro',
-      },
-    },
-  ],
 }
 
 export default config

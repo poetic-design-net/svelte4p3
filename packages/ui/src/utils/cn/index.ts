@@ -9,10 +9,12 @@ const getExtendedConfigKeys = (): Record<string, string[]> => {
     switch (key) {
       case 'borderRadius':
       case 'colors':
-      case 'spacing':
+      case 'spacing': {
         return key
-      default:
+      }
+      default: {
         return undefined
+      }
     }
   }
 
@@ -33,23 +35,29 @@ const getExtendedConfigKeys = (): Record<string, string[]> => {
 const getClassGroups = () => {
   const getCssProperty = (key: string): string | undefined => {
     switch (key) {
-      case 'fontFamily':
+      case 'fontFamily': {
         return 'font-family'
-      case 'fontSize':
+      }
+      case 'fontSize': {
         return 'font-size'
-      default:
+      }
+      default: {
         return undefined
+      }
     }
   }
 
   const mapKey = (key: string): string | undefined => {
     switch (key) {
-      case 'fontFamily':
+      case 'fontFamily': {
         return 'font'
-      case 'fontSize':
+      }
+      case 'fontSize': {
         return 'text'
-      default:
+      }
+      default: {
         return undefined
+      }
     }
   }
 

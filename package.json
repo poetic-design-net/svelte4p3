@@ -20,26 +20,17 @@
     "storybook": "turbo storybook",
     "typecheck": "turbo typecheck --continue"
   },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json}": [
-      "prettier --write"
-    ]
-  },
   "prettier": "@local/prettier-config",
   "devDependencies": {
     "@local/prettier-config": "workspace:*",
-    "@turbo/gen": "^2.1.2",
+    "@turbo/gen": "^2.2.3",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
-    "npm-check-updates": "^17.1.1",
+    "npm-check-updates": "^17.1.10",
     "prettier": "^3.3.3",
     "syncpack": "^12.4.0",
-    "turbo": "^2.1.2",
-    "typescript": "^5.6.2"
+    "turbo": "^2.2.3",
+    "typescript": "^5.6.3"
   },
   "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
   "engines": {

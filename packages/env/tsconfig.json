@@ -9,6 +9,5 @@
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
   "exclude": ["node_modules"],
-  "extends": "@local/tsconfig/base.json",
-  "include": ["*.ts", "src"]
+  "extends": "@local/tsconfig/internal-package.json"
 }

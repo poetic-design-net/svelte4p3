@@ -1,11 +1,11 @@
 import { createEnv } from '@t3-oss/env-nextjs'
 import { z } from 'zod'
 
-import { baseConfig } from '@local/env/helpers/baseConfig'
+import { skipValidation } from '@local/env/helpers/skipValidation'
 
 export const env = createEnv({
-  ...baseConfig,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+  emptyStringAsUndefined: true,
+
   experimental__runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
   },
@@ -14,4 +14,5 @@ export const env = createEnv({
       .enum(['development', 'production', 'test'])
       .default('development'),
   },
+  skipValidation,
 })

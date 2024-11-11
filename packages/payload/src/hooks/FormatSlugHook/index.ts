@@ -1,12 +1,12 @@
 import type { FieldHook } from 'payload'
 
-import { formatSlug } from '@local/payload/helpers/formatSlug'
+import { createSlug } from '@local/utils/createSlug'
 
 export const formatSlugHook =
   (fallback: string): FieldHook =>
   ({ data, operation, value }) => {
     if (typeof value === 'string') {
-      return formatSlug(value)
+      return createSlug(value)
     }
 
     if (
@@ -16,7 +16,7 @@ export const formatSlugHook =
       fallback in data &&
       typeof data[fallback] === 'string'
     ) {
-      return formatSlug(data[fallback])
+      return createSlug(data[fallback])
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return

@@ -21,7 +21,7 @@ export interface Config {
     'payload-migrations': PayloadMigration;
   };
   db: {
-    defaultIDType: number;
+    defaultIDType: string;
   };
   globals: {
     'navigation-menu': NavigationMenu;
@@ -55,14 +55,14 @@ export interface UserAuthOperations {
  * via the `definition` "pages".
  */
 export interface Page {
-  id: number;
+  id: string;
   title: string;
   slug?: string | null;
   slugLock?: boolean | null;
-  parent?: (number | null) | Page;
+  parent?: (string | null) | Page;
   breadcrumbs?:
     | {
-        doc?: (number | null) | Page;
+        doc?: (string | null) | Page;
         url?: string | null;
         label?: string | null;
         id?: string | null;
@@ -71,7 +71,7 @@ export interface Page {
   meta: {
     title: string;
     description?: string | null;
-    image?: (number | null) | Media;
+    image?: (string | null) | Media;
   };
   publishedDate?: string | null;
   hideFromIndexing?: boolean | null;
@@ -85,7 +85,7 @@ export interface Page {
  * via the `definition` "media".
  */
 export interface Media {
-  id: number;
+  id: string;
   alt: string;
   updatedAt: string;
   createdAt: string;
@@ -104,14 +104,14 @@ export interface Media {
  * via the `definition` "articles".
  */
 export interface Article {
-  id: number;
+  id: string;
   title: string;
   slug?: string | null;
   slugLock?: boolean | null;
   meta: {
     title: string;
     description?: string | null;
-    image?: (number | null) | Media;
+    image?: (string | null) | Media;
   };
   publishedDate?: string | null;
   hideFromIndexing?: boolean | null;
@@ -124,7 +124,7 @@ export interface Article {
  * via the `definition` "users".
  */
 export interface User {
-  id: number;
+  id: string;
   role: 'user' | 'admin';
   updatedAt: string;
   createdAt: string;
@@ -142,18 +142,18 @@ export interface User {
  * via the `definition` "redirects".
  */
 export interface Redirect {
-  id: number;
+  id: string;
   from: string;
   to?: {
     type?: ('reference' | 'custom') | null;
     reference?:
       | ({
           relationTo: 'pages';
-          value: number | Page;
+          value: string | Page;
         } | null)
       | ({
           relationTo: 'articles';
-          value: number | Article;
+          value: string | Article;
         } | null);
     url?: string | null;
   };
@@ -166,32 +166,32 @@ export interface Redirect {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: number;
+  id: string;
   document?:
     | ({
         relationTo: 'pages';
-        value: number | Page;
+        value: string | Page;
       } | null)
     | ({
         relationTo: 'articles';
-        value: number | Article;
+        value: string | Article;
       } | null)
     | ({
         relationTo: 'users';
-        value: number | User;
+        value: string | User;
       } | null)
     | ({
         relationTo: 'media';
-        value: number | Media;
+        value: string | Media;
       } | null)
     | ({
         relationTo: 'redirects';
-        value: number | Redirect;
+        value: string | Redirect;
       } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -201,10 +201,10 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: number;
+  id: string;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   key?: string | null;
   value?:
@@ -224,7 +224,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: number;
+  id: string;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -235,7 +235,7 @@ export interface PayloadMigration {
  * via the `definition` "navigation-menu".
  */
 export interface NavigationMenu {
-  id: number;
+  id: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -244,7 +244,7 @@ export interface NavigationMenu {
  * via the `definition` "footer".
  */
 export interface Footer {
-  id: number;
+  id: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

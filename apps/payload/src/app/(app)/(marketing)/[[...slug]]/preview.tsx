@@ -11,7 +11,9 @@ export const Preview: FC = () => {
 
   return (
     <RefreshRouteOnSave
-      refresh={() => router.refresh()}
+      refresh={() => {
+        router.refresh()
+      }}
       serverURL={env.NEXT_PUBLIC_PAYLOAD_URL}
     />
   )

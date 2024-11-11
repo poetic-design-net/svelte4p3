@@ -9,10 +9,10 @@ import config from '@local/payload/payload-config'
 import { Preview } from './preview'
 
 type ArticlePageProps = {
-  params: { slug: string }
-  searchParams: {
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{
     isLivePreview?: string
-  }
+  }>
 }
 
 const getArticle = cache(async (slug: string, isLivePreview?: boolean) => {
@@ -34,9 +34,11 @@ const getArticles = cache(async () => {
 })
 
 export const generateMetadata = async ({
-  params: { slug },
-  searchParams: { isLivePreview },
+  params,
+  searchParams,
 }: ArticlePageProps): Promise<Metadata> => {
+  const { slug } = await params
+  const { isLivePreview } = await searchParams
   const article = await getArticle(slug, Boolean(isLivePreview))
 
   if (!article?.meta) {
@@ -47,21 +49,25 @@ export const generateMetadata = async ({
 }
 
 export const generateStaticParams = async (): Promise<
-  NonNullable<ArticlePageProps['params']>[]
+  Awaited<NonNullable<ArticlePageProps['params']>>[]
 > => {
   const articles = await getArticles()
 
-  return articles
-    .filter(page => page.slug)
-    .map(({ slug }) => ({
-      slug: slug!,
-    }))
+  return articles.reduce<Awaited<NonNullable<ArticlePageProps['params']>>[]>(
+    (acc, { slug }) => {
+      if (!slug) {
+        return acc
+      }
+
+      return [...acc, { slug }]
+    },
+    [],
+  )
 }
 
-const ArticlePage: FC<ArticlePageProps> = async ({
-  params: { slug },
-  searchParams: { isLivePreview },
-}) => {
+const ArticlePage: FC<ArticlePageProps> = async ({ params, searchParams }) => {
+  const { slug } = await params
+  const { isLivePreview } = await searchParams
   const article = await getArticle(slug, Boolean(isLivePreview))
 
   if (!article) {

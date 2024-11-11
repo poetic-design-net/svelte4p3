@@ -14,24 +14,18 @@
     "typecheck": "tsc --noEmit"
   },
   "prettier": "@local/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "@local/eslint-config/base"
-    ],
-    "root": true
-  },
   "dependencies": {
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.41",
-    "tailwindcss": "^3.4.11",
+    "postcss": "^8.4.48",
+    "tailwindcss": "^3.4.14",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@local/eslint-config": "workspace:*",
     "@local/prettier-config": "workspace:*",
     "@local/tsconfig": "workspace:*",
-    "eslint": "^8.57.0",
+    "eslint": "^9.14.0",
     "prettier": "^3.3.3",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   }
 }

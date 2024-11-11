@@ -26,16 +26,6 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "prettier": "@local/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "@local/eslint-config/base",
-      "@local/eslint-config/react"
-    ],
-    "ignorePatterns": [
-      "src/payload.types.ts"
-    ],
-    "root": true
-  },
   "dependencies": {
     "@local/env": "workspace:*",
     "@local/svg": "workspace:*",
@@ -50,12 +40,13 @@
     "@payloadcms/plugin-seo": "3.0.0-beta.108",
     "@payloadcms/richtext-lexical": "3.0.0-beta.108",
     "@payloadcms/ui": "3.0.0-beta.108",
+    "lexical": "0.18.0",
     "next": "catalog:next15",
     "payload": "3.0.0-beta.108",
     "react": "catalog:next15",
     "react-dom": "catalog:next15",
     "sharp": "^0.33.5",
-    "ts-pattern": "^5.3.1"
+    "ts-pattern": "^5.5.0"
   },
   "devDependencies": {
     "@local/eslint-config": "workspace:*",
@@ -64,9 +55,9 @@
     "@local/types": "workspace:*",
     "@types/react": "catalog:next15",
     "@types/react-dom": "catalog:next15",
-    "eslint": "^8.57.0",
+    "eslint": "^9.14.0",
     "prettier": "^3.3.3",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   },
   "overrides": {
     "@types/react": "catalog:next15",

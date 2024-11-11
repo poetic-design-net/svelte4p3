@@ -31,8 +31,13 @@ export const Pages: CollectionConfig = {
     ],
     group: 'Content',
     livePreview: {
-      url: ({ data }) =>
-        `${env.NEXT_PUBLIC_PAYLOAD_URL}${data.pathname}?isLivePreview=true`,
+      url: ({ data }) => {
+        if ('pathname' in data && typeof data.pathname === 'string') {
+          return `${env.NEXT_PUBLIC_PAYLOAD_URL}${data.pathname}?isLivePreview=true`
+        }
+
+        return ''
+      },
     },
     pagination: {
       defaultLimit: 25,
@@ -43,7 +48,7 @@ export const Pages: CollectionConfig = {
     {
       tabs: [
         {
-          fields: [titleField()],
+          fields: [...titleField()],
           label: 'Content',
         },
         {
@@ -57,8 +62,8 @@ export const Pages: CollectionConfig = {
       ],
       type: 'tabs',
     },
-    publishedDateField(),
-    hideFromIndexingField(),
+    ...publishedDateField(),
+    ...hideFromIndexingField(),
   ],
   hooks: {
     afterChange: [RevalidatePageHook],

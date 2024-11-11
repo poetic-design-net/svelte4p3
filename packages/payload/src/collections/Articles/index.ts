@@ -21,8 +21,13 @@ export const Articles: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'status', 'updatedAt', 'publishedDate'],
     group: 'Content',
     livePreview: {
-      url: ({ data }) =>
-        `${env.NEXT_PUBLIC_PAYLOAD_URL}/articles/${data.slug}?isLivePreview=true`,
+      url: ({ data }) => {
+        if ('slug' in data && typeof data.slug === 'string') {
+          return `${env.NEXT_PUBLIC_PAYLOAD_URL}/articles/${data.slug}?isLivePreview=true`
+        }
+
+        return ''
+      },
     },
     pagination: {
       defaultLimit: 25,
@@ -33,7 +38,7 @@ export const Articles: CollectionConfig = {
     {
       tabs: [
         {
-          fields: [titleField()],
+          fields: [...titleField()],
           label: 'Content',
         },
         {
@@ -43,8 +48,8 @@ export const Articles: CollectionConfig = {
       ],
       type: 'tabs',
     },
-    publishedDateField(),
-    hideFromIndexingField(),
+    ...publishedDateField(),
+    ...hideFromIndexingField(),
   ],
   hooks: {
     afterChange: [RevalidatePageHook],
