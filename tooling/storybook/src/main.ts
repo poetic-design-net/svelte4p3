@@ -1,8 +1,8 @@
-import { dirname, join } from 'path'
+import path from 'node:path'
 import type { StorybookConfig } from '@storybook/nextjs'
 
 const getAbsolutePath = (packageName: string): string =>
-  dirname(require.resolve(join(packageName, 'package.json')))
+  path.dirname(import.meta.resolve(path.join(packageName, 'package.json')))
 
 export const config: StorybookConfig = {
   addons: [
@@ -28,7 +28,7 @@ export const config: StorybookConfig = {
               {
                 // Gets options from `postcss.config.js` in your project root
                 loader: 'postcss-loader',
-                options: { implementation: require.resolve('postcss') },
+                options: { implementation: import.meta.resolve('postcss') },
               },
             ],
           },

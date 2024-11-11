@@ -1,301 +1,247 @@
-<a name="readme-top"></a>
+# create-t3-turbo
 
-<!-- <br /> -->
-<div align="center">
-  <h3 align="center">Payload Monorepo Template (Payload | Next.js | Astro)</h3>
+> **Note**
+> Due to high demand, this repo now uses the `app` directory with some new experimental features. If you want to use the more traditional `pages` router, [check out the repo before the update](https://github.com/t3-oss/create-t3-turbo/tree/414aff131ca124573e721f3779df3edb64989fd4).
 
-  <p align="center">
-    A monorepo built on Payload 3 to demonstrate the use of frameworks other than Next.js for their frontend.
-  </p>
-</div>
+> **Note**
+> OAuth deployments are now working for preview deployments. Read [deployment guide](https://github.com/t3-oss/create-t3-turbo#auth-proxy) and [check out the source](./apps/auth-proxy) to learn more!
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-        <li><a href="#tooling">Tooling</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#project-structure">Project structure</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
+## Installation
 
-<!-- ABOUT THE PROJECT -->
+There are two ways of initializing an app using the `create-t3-turbo` starter. You can either use this repository as a template:
 
-## About The Project
+![use-as-template](https://github.com/t3-oss/create-t3-turbo/assets/51714798/bb6c2e5d-d8b6-416e-aeb3-b3e50e2ca994)
 
-This project is designed to show how you can use Payload 3 on top of Next.js with alternate frontend frameworks such as Astro. The goal is to provide a boilerplate for users to get started with minimal architectural setup but with an excellent developer experience.
+or use Turbo's CLI to init your project (use PNPM as package manager):
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Built With
-
-- [![Payload CMS][payload-shield]][payload-url]
-- [![Next][next-shield]][next-url]
-- [![TypeScript][typescript-shield]][typescript-url]
-- [![TailwindCSS][tailwind-shield]][tailwind-url]
-
-### Tooling
-
-- [![Storybook][storybook-shield]][storybook-url]
-- [![ESLint][eslint-shield]][eslint-url]
-- [![Prettier][prettier-shield]][prettier-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-Make sure you have the following tools installed on your system to run this project.
-
-### Prerequisites
-
-#### Required
-
-- [![nvm][nvm-shield]][nvm-url] or [![Node 20+][node-shield]][node-url]
-- [![pnpm][pnpm-shield]][pnpm-url]
-
-#### Optional
-
-- [![vscode][vscode-shield]][vscode-url]
-
-This project includes recommended VS Code extensions. While these extensions are optional your experience will be greatly enhanced by having them.
-
-### Installation
-
-1. Clone this repo
-
-   ```sh
-   git clone github.com/fusionary/turbo-payload.git
-   ```
-
-2. Use recommended node version (if using NVM)
-
-   ```sh
-   nvm use
-   ```
-
-3. Install node packages
-
-   ```sh
-   pnpm install
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Project Structure
-
-```
-├── apps
-│   ├── astro
-│   ├── docs
-│   ├── payload
-├── packages
-│   ├── env
-│   ├── icons
-│   ├── payload
-│   ├── svg
-│   │   ├── README.md
-│   ├── types
-│   ├── ui
-│   ├── utils
-├── tooling
-│   ├── eslint
-│   ├── github
-│   ├── prettier
-│   ├── storybook
-│   ├── tailwind
-│   ├── typescript
+```bash
+npx create-turbo@latest -e https://github.com/t3-oss/create-t3-turbo
 ```
 
-<p align="right">(<a href="#readme-top" align="right">back to top</a>)</p>
+## About
+
+Ever wondered how to migrate your T3 application into a monorepo? Stop right here! This is the perfect starter repo to get you running with the perfect stack!
 
-### Apps
+It uses [Turborepo](https://turborepo.org) and contains:
 
-#### astro
+```text
+.github
+  └─ workflows
+        └─ CI with pnpm cache setup
+.vscode
+  └─ Recommended extensions and settings for VSCode users
+apps
+  ├─ auth-proxy
+  |   ├─ Nitro server to proxy OAuth requests in preview deployments
+  |   └─ Uses Auth.js Core
+  ├─ expo
+  |   ├─ Expo SDK 49
+  |   ├─ React Native using React 18
+  |   ├─ Navigation using Expo Router
+  |   ├─ Tailwind using NativeWind
+  |   └─ Typesafe API calls using tRPC
+  └─ next.js
+      ├─ Next.js 14
+      ├─ React 18
+      ├─ Tailwind CSS
+      └─ E2E Typesafe API Server & Client
+packages
+  ├─ api
+  |   └─ tRPC v11 router definition
+  ├─ auth
+  |   └─ Authentication using next-auth. **NOTE: Only for Next.js app, not Expo**
+  ├─ db
+  |   └─ Typesafe db calls using Drizzle & Planetscale
+  └─ ui
+      └─ Start of a UI package for the webapp using shadcn-ui
+tooling
+  ├─ eslint
+  |   └─ shared, fine-grained, eslint presets
+  ├─ prettier
+  |   └─ shared prettier configuration
+  ├─ tailwind
+  |   └─ shared tailwind configuration
+  └─ typescript
+      └─ shared tsconfig you can extend from
+```
 
-Astro frontend application leveraging Payload 3 local API. Astro is configured with Tailwind for styling. Additionally it is configured for dynamic routes using SSR. This can be optimized for production to use SSG in the build phase or SSR/SSG hybrid.
+> In this template, we use `@local` as a placeholder for package names. As a user, you might want to replace it with your own organization or project name. You can use find-and-replace to change all the instances of `@local` to something like `@my-company` or `@project-name`.
 
-#### docs
+## Quick Start
 
-This is a Storybook instance to help you create and preview your components as isolated stories.
+> **Note**
+> The [db](./packages/db) package is preconfigured to use PlanetScale and is **edge-bound** with the [database.js](https://github.com/planetscale/database-js) driver. If you're using something else, make the necessary modifications to the [schema](./packages/db/src/schema) as well as the [client](./packages/db/src/index.ts) and the [drizzle config](./packages/db/drizzle.config.ts). If you want to switch to non-edge database driver, remove `export const runtime = "edge";` [from all pages and api routes](https://github.com/t3-oss/create-t3-turbo/issues/634#issuecomment-1730240214).
 
-#### payload
+To get it running, follow the steps below:
 
-This app serves two purposes. It includes Next.js and Payload 3. This is configured to serve as the Payload admin as well as a Next.js frontend. This is currently set up as the payload preview app and is also configured to run in hybrid rendering mode.
+### 1. Setup dependencies
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+```bash
+# Install dependencies
+pnpm i
 
-### Packages
+# Configure environment variables
+# There is an `.env.example` in the root directory you can use for reference
+cp .env.example .env
 
-#### env
+# Push the Drizzle schema to the database
+pnpm db:push
+```
 
-This package contains environment variable configuration for use in various apps and packages. It performs environment variable validation and is recommended to ensure all necessary env vars are populated and valid.
+### 2. Configure Expo `dev`-script
 
-#### icons
+#### Use iOS Simulator
 
-Here is where we store reusable iconography. By default it includes Lucide React icons that can be selectively exported. In addition, you can bring your own icons.
+1. Make sure you have XCode and XCommand Line Tools installed [as shown on expo docs](https://docs.expo.dev/workflow/ios-simulator).
 
-#### payload
+   > **NOTE:** If you just installed XCode, or if you have updated it, you need to open the simulator manually once. Run `npx expo start` in the root dir, and then enter `I` to launch Expo Go. After the manual launch, you can run `pnpm dev` in the root directory.
 
-This is where all of the magic occurs. This is a Payload package which contains all of the shared Payload configuration (e.g. fields, collections, access control, etc.). When you are building out your payload configuration, this is where you want to be. This enables you an elegant way to use a single Payload configuration across multiple apps with no effort and maximum developer productivity.
+   ```diff
+   +  "dev": "expo start --ios",
+   ```
 
-#### svg
+2. Run `pnpm dev` at the project root folder.
 
-Collection of SVGs for use in various client apps. This is where all SVGs should be exported. There is a [README](/packages/svg/README.md) that contains information on converting SVGs to React components.
+#### Use Android Emulator
 
-#### types
+1. Install Android Studio tools [as shown on expo docs](https://docs.expo.dev/workflow/android-studio-emulator).
 
-Types (and zod schemas) to be used across various different packages and applications.
+2. Change the `dev` script at `apps/expo/package.json` to open the Android emulator.
 
-#### ui
+   ```diff
+   +  "dev": "expo start --android",
+   ```
 
-Shared UI components. Generally speaking we have used this for shared React components.
+3. Run `pnpm dev` at the project root folder.
 
-#### utils
+> **TIP:** It might be easier to run each app in separate terminal windows, so you get the logs from each app separately. This is also required if you want your terminals to be interactive, e.g. to access the Expo QR code. You can run `pnpm --filter expo dev` and `pnpm --filter nextjs dev` to run each app in a separate terminal window.
 
-Shared utility functions to be used throughout.
+### 3. When it's time to add a new package
 
-### tooling
+To add a new package, simply run `pnpm turbo gen init` in the monorepo root. This will prompt you for a package name as well as if you want to install any dependencies to the new package (of course you can also do this yourself later).
 
-#### eslint
+The generator sets up the `package.json`, `tsconfig.json` and a `index.ts`, as well as configures all the necessary configurations for tooling around your package such as formatting, linting and typechecking. When the package is created, you're ready to go build out the package.
 
-Customized eslint rules that are the basis for all other JavaScript/TypeScript projects in this repo. If you need to adjust global rules, this is the place to do it. Note that these rules are extended in each package directory so if you need to adjust configuration for a particular package, that is the place to do it.
+## FAQ
 
-#### github
+### Does the starter include Solito?
 
-Baseline Github action configuration to be shared across different pipelines.
+No. Solito will not be included in this repo. It is a great tool if you want to share code between your Next.js and Expo app. However, the main purpose of this repo is not the integration between Next.js and Expo — it's the code splitting of your T3 App into a monorepo. The Expo app is just a bonus example of how you can utilize the monorepo with multiple apps but can just as well be any app such as Vite, Electron, etc.
 
-#### prettier
+Integrating Solito into this repo isn't hard, and there are a few [official templates](https://github.com/nandorojo/solito/tree/master/example-monorepos) by the creators of Solito that you can use as a reference.
 
-Shared prettier configuration settings.
+### What auth solution should I use instead of Next-Auth.js for Expo?
 
-#### storybook
+I've left this kind of open for you to decide. Some options are [Clerk](https://clerk.dev), [Supabase Auth](https://supabase.com/docs/guides/auth), [Firebase Auth](https://firebase.google.com/docs/auth/) or [Auth0](https://auth0.com/docs). Note that if you're dropping the Expo app for something more "browser-like", you can still use Next-Auth.js for those. [See an example in a Plasmo Chrome Extension here](https://github.com/t3-oss/create-t3-turbo/tree/chrome/apps/chrome).
 
-This package provides a Storybook configuration that can be used be different packages.
+The Clerk.dev team even made an [official template repository](https://github.com/clerkinc/t3-turbo-and-clerk) integrating Clerk.dev with this repo.
 
-#### tailwind
+During Launch Week 7, Supabase [announced their fork](https://supabase.com/blog/launch-week-7-community-highlights#t3-turbo-x-supabase) of this repo integrating it with their newly announced auth improvements. You can check it out [here](https://github.com/supabase-community/create-t3-turbo).
 
-This package provides the Tailwind CSS configuration. Any changes to Tailwind configuration should be completed here.
+### Does this pattern leak backend code to my client applications?
 
-#### typescript
+No, it does not. The `api` package should only be a production dependency in the Next.js application where it's served. The Expo app, and all other apps you may add in the future, should only add the `api` package as a dev dependency. This lets you have full typesafety in your client applications, while keeping your backend code safe.
 
-This packages contains several different tsconfigs form which to extend from.
+If you need to share runtime code between the client and server, such as input validation schemas, you can create a separate `shared` package for this and import it on both sides.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Deployment
 
-## Developing
+### Next.js
 
-### Environment Variables
+#### Prerequisites
 
-Environment variables are already defined in each app. We use the dotnnvx package along with the ability to encrypt values to store all environment variables in the repo. The only thing that you need to do is to ensure that there is a .env.keys file in the root of the repo. All apps should symlink this so you only need to maintain one set of private keys.
+> **Note**
+> Please note that the Next.js application with tRPC must be deployed in order for the Expo app to communicate with the server in a production environment.
 
-### Database
+#### Deploy to Vercel
 
-By default, the local development uses SQLite for a database. This ensures minimal effort to get the project running locally the first time. It is also ready to use MongoDB. Feel free to change environment variables in the .env.development.local files to switch database engines.
+Let's deploy the Next.js application to [Vercel](https://vercel.com). If you've never deployed a Turborepo app there, don't worry, the steps are quite straightforward. You can also read the [official Turborepo guide](https://vercel.com/docs/concepts/monorepos/turborepo) on deploying to Vercel.
 
-### Modeling (Payload Config)
+1. Create a new project on Vercel, select the `apps/nextjs` folder as the root directory. Vercel's zero-config system should handle all configurations for you.
 
-If you are just doing modeling or entering content, you only need to execute the Payload app. Running the Payload app will ensure that types are generated for _all_ clients. If you are doing anything that will result in types changing, it is recommended to run this project. There are two ways to do this. First, if you're using VS Code, you can click the run and debug menu (play icon) and then select Payload from the dropdown and then click the play icon. Alternatively, from a terminal you can type `pnpm dev --filter payload...`.
+2. Add your `DATABASE_URL` environment variable.
 
-### Frontend
+3. Done! Your app should successfully deploy. Assign your domain and use that instead of `localhost` for the `url` in the Expo app so that your Expo app can communicate with your backend when you are not in development.
 
-If you are only doing frontend coding, and will not be adjusting content or modeling you can just run the frontend project. Right now the only project is Astro. To run this there are two choices. In VS Code you can select astro from the run and debug menu and click play. Alternatively, you can type `pnpm dev --filter astro...`.
+### Auth Proxy
 
-If you plan on doing frontend coding as well as updating content or models, then it is recommended to run Payload and your frontend project concurrently. Again, you can do this from the run and debug menu or you can type `pnpm dev --filter astro... --filter payload...`. This will make sure both projects are running.
+The auth proxy is a Nitro server that proxies OAuth requests in preview deployments. This is required for the Next.js app to be able to authenticate users in preview deployments. The auth proxy is not used for OAuth requests in production deployments. To get it running, it's easiest to use Vercel Edge functions. See the [Nitro docs](https://nitro.unjs.io/deploy/providers/vercel#vercel-edge-functions) for how to deploy Nitro to Vercel.
 
-### Package Updates
+Then, there are some environment variables you need to set in order to get OAuth working:
 
-This project has shortcuts to `npm-check-updates` in the package scripts. To check for the latest node packages, run `pnpm packages:check` from the root of the repo. This will list all outstanding dependencies by project. To update the packages, run `pnpm packages:upate`. Executing the updates will automatically run pnpm install after the package.json files are updated.
+- For the Next.js app, set `AUTH_REDIRECT_PROXY_URL` to the URL of the auth proxy.
+- For the auth proxy server, set `AUTH_REDIRECT_PROXY_URL` to the same as above, as well as `AUTH_DISCORD_ID`, `AUTH_DISCORD_SECRET` (or the equivalent for your OAuth provider(s)). Lastly, set `AUTH_SECRET` **to the same value as in the Next.js app** for preview environments.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Read more about the setup in [the auth proxy README](./apps/auth-proxy/README.md).
 
-## Hosting
+### Expo
 
-More information coming soon.
+Deploying your Expo application works slightly differently compared to Next.js on the web. Instead of "deploying" your app online, you need to submit production builds of your app to app stores, like [Apple App Store](https://www.apple.com/app-store) and [Google Play](https://play.google.com/store/apps). You can read the full [guide to distributing your app](https://docs.expo.dev/distribution/introduction), including best practices, in the Expo docs.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+1. Make sure to modify the `getBaseUrl` function to point to your backend's production URL:
 
-<!-- ROADMAP -->
+   <https://github.com/t3-oss/create-t3-turbo/blob/656965aff7db271e5e080242c4a3ce4dad5d25f8/apps/expo/src/utils/api.tsx#L20-L37>
 
-## Roadmap
+2. Let's start by setting up [EAS Build](https://docs.expo.dev/build/introduction), which is short for Expo Application Services. The build service helps you create builds of your app, without requiring a full native development setup. The commands below are a summary of [Creating your first build](https://docs.expo.dev/build/setup).
 
-See the [open issues](https://github.com/fusionary/turbo-payload/issues) for a full list of proposed features (and known issues).
+   ```bash
+   # Install the EAS CLI
+   pnpm add -g eas-cli
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+   # Log in with your Expo account
+   eas login
 
-<!-- CONTRIBUTING -->
+   # Configure your Expo app
+   cd apps/expo
+   eas build:configure
+   ```
 
-## Contributing
+3. After the initial setup, you can create your first build. You can build for Android and iOS platforms and use different [`eas.json` build profiles](https://docs.expo.dev/build-reference/eas-json) to create production builds or development, or test builds. Let's make a production build for iOS.
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+   ```bash
+   eas build --platform ios --profile production
+   ```
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+   > If you don't specify the `--profile` flag, EAS uses the `production` profile by default.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+4. Now that you have your first production build, you can submit this to the stores. [EAS Submit](https://docs.expo.dev/submit/introduction) can help you send the build to the stores.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+   ```bash
+   eas submit --platform ios --latest
+   ```
 
-<!-- LICENSE -->
+   > You can also combine build and submit in a single command, using `eas build ... --auto-submit`.
 
-## License
+5. Before you can get your app in the hands of your users, you'll have to provide additional information to the app stores. This includes screenshots, app information, privacy policies, etc. _While still in preview_, [EAS Metadata](https://docs.expo.dev/eas/metadata) can help you with most of this information.
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+6. Once everything is approved, your users can finally enjoy your app. Let's say you spotted a small typo; you'll have to create a new build, submit it to the stores, and wait for approval before you can resolve this issue. In these cases, you can use EAS Update to quickly send a small bugfix to your users without going through this long process. Let's start by setting up EAS Update.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+   The steps below summarize the [Getting started with EAS Update](https://docs.expo.dev/eas-update/getting-started/#configure-your-project) guide.
 
-<!-- CONTACT -->
+   ```bash
+   # Add the `expo-updates` library to your Expo app
+   cd apps/expo
+   pnpm expo install expo-updates
 
-## Contact
+   # Configure EAS Update
+   eas update:configure
+   ```
 
-Project Link: [https://github.com/fusionary/turbo-payload](https://github.com/fusionary/turbo-payload)
+7. Before we can send out updates to your app, you have to create a new build and submit it to the app stores. For every change that includes native APIs, you have to rebuild the app and submit the update to the app stores. See steps 2 and 3.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+8. Now that everything is ready for updates, let's create a new update for `production` builds. With the `--auto` flag, EAS Update uses your current git branch name and commit message for this update. See [How EAS Update works](https://docs.expo.dev/eas-update/how-eas-update-works/#publishing-an-update) for more information.
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+   ```bash
+   cd apps/expo
+   eas update --auto
+   ```
 
-[typescript-shield]: https://img.shields.io/badge/typescript-20232A?style=for-the-badge&logo=typescript&logoColor=358ef1
-[typescript-url]: https://www.typescriptlang.org/
-[next-shield]: https://img.shields.io/badge/next.js-20232A?style=for-the-badge&logo=nextdotjs&logoColor=white
-[next-url]: https://nextjs.org/
-[payload-shield]: https://img.shields.io/badge/Payload%20CMS-20232A?style=for-the-badge&logo=payloadcms&logoColor=white
-[payload-url]: https://payloadcms.com/
-[tailwind-shield]: https://img.shields.io/badge/tailwindcss-20232A?style=for-the-badge&logo=tailwindcss&logoColor=0ea5e9
-[tailwind-url]: https://tailwindcss.com/
-[storybook-shield]: https://img.shields.io/badge/storybook-20232A?style=for-the-badge&logo=storybook&logoColor=ff4785
-[storybook-url]: https://storybook.js.org/
-[eslint-shield]: https://img.shields.io/badge/eslint-20232A?style=for-the-badge&logo=eslint&logoColor=4B32C3
-[eslint-url]: https://eslint.org/
-[prettier-shield]: https://img.shields.io/badge/prettier-20232A?style=for-the-badge&logo=prettier&logoColor=f8bc45
-[prettier-url]: https://prettier.io/
-[node-shield]: https://img.shields.io/badge/node.js-20232A?style=for-the-badge&logo=node.js&logoColor=336633
-[node-url]: https://nodejs.org/
-[nvm-shield]: https://img.shields.io/badge/nvm-20232A?style=for-the-badge&logoColor=ffffff
-[nvm-url]: https://github.com/nvm-sh/nvm
-[pnpm-shield]: https://img.shields.io/badge/pnpm-20232A?style=for-the-badge&logo=pnpm&logoColor=f6922
-[pnpm-url]: https://pnpm.io/installation
-[vscode-shield]: https://img.shields.io/badge/vscode-20232A?style=for-the-badge&logo=visualstudiocode&logoColor=0098FF
-[vscode-url]: https://code.visualstudio.com/
+   > Your OTA (Over The Air) updates must always follow the app store's rules. You can't change your app's primary functionality without getting app store approval. But this is a fast way to update your app for minor changes and bug fixes.
+
+9. Done! Now that you have created your production build, submitted it to the stores, and installed EAS Update, you are ready for anything!
+
+## References
+
+The stack originates from [create-t3-app](https://github.com/t3-oss/create-t3-app).
+
+A [blog post](https://jumr.dev/blog/t3-turbo) where I wrote how to migrate a T3 app into this.

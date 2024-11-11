@@ -5,8 +5,8 @@ packages:
 
 catalogs:
   next15:
-    next: 15.0.0-canary.160
-    react: 19.0.0-rc-e740d4b1-20240919
-    react-dom: 19.0.0-rc-e740d4b1-20240919
-    '@types/react': npm:types-react@19.0.0-rc.1
-    '@types/react-dom': 'npm:types-react-dom@19.0.0-rc.1'
+    next: ^15.0.2
+    react: ^19.0.0-rc-7c8e5e7a-20241101
+    react-dom: ^19.0.0-rc-7c8e5e7a-20241101
+    '@types/react': npm:types-react@19.0.0-rc.0
+    '@types/react-dom': npm:types-react-dom@19.0.0-rc.0

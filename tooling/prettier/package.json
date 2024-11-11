@@ -13,16 +13,15 @@
   },
   "prettier": "@local/prettier-config",
   "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "prettier": "^3.3.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-packagejson": "^2.5.1",
+    "prettier-plugin-packagejson": "^2.5.3",
     "prettier-plugin-sort-json": "^4.0.0",
-    "prettier-plugin-tailwindcss": "^0.6.6"
+    "prettier-plugin-tailwindcss": "^0.6.8"
   },
   "devDependencies": {
     "@local/tsconfig": "workspace:*",
-    "@types/node": "^20.16.5",
-    "typescript": "^5.6.2"
+    "@types/node": "^20.17.6",
+    "typescript": "^5.6.3"
   }
 }
