@@ -65,6 +65,7 @@
     "**/.open-next": true,
     "**/.parcel-cache": true,
     "**/.sst": true,
+    "**/.svelte-kit": true,
     "**/.turbo": true,
     "**/Thumbs.db": true,
     "**/build": true,

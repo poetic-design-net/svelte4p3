@@ -6,7 +6,8 @@
   "exports": {
     ".": "./eslint.config.mjs",
     "./astro": "./astro.mjs",
-    "./react": "./react.mjs"
+    "./react": "./react.mjs",
+    "./svelte": "./svelte.mjs"
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
@@ -35,6 +36,7 @@
     "eslint-plugin-regexp": "^2.6.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-storybook": "^0.10.2",
+    "eslint-plugin-svelte": "^2.36.0",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "eslint-plugin-unicorn": "^56.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
