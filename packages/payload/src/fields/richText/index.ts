@@ -31,7 +31,7 @@ type RichText = (
 export const richTextField: RichText = (overrides = {}, additions = {}) => {
   const { richTextOverrides = {} } = overrides
 
-  const richTextField = deepMerge<LexicalRichTextField, LexicalRichTextField>(
+  const richTextField = deepMerge<LexicalRichTextField>(
     {
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [

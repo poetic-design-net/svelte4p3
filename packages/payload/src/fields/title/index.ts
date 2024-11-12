@@ -10,7 +10,7 @@ type TitleField = (overrides?: TextFieldOverrides) => [TextField]
 export const titleField: TitleField = (overrides = {}) => {
   const { titleOverrides = {} } = overrides
 
-  const titleField = deepMerge<TextField, TextField>(
+  const titleField = deepMerge<TextField>(
     {
       label: 'Name',
       name: 'title',

@@ -12,7 +12,7 @@ type PublishedDateField = (
 export const publishedDateField: PublishedDateField = (overrides = {}) => {
   const { publishedDateOverrides = {} } = overrides
 
-  const publishedDateField = deepMerge<DateField, Partial<DateField>>(
+  const publishedDateField = deepMerge<DateField>(
     {
       admin: {
         position: 'sidebar',

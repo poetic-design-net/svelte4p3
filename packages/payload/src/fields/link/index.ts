@@ -8,89 +8,108 @@ import type {
 import { deepMerge } from 'payload'
 
 export type LinkFieldOverrides = {
-  internalLinkOverrides?: RelationshipField
-  labelOverrides?: TextField
-  linkTypeOverrides?: RadioField
-  openInNewTabOverrides?: CheckboxField
-  urlOverrides?: TextField
+  groupOverrides?: Partial<Omit<GroupField, 'fields'>>
+  internalLinkOverrides?: Partial<RelationshipField>
+  labelOverrides?: Partial<TextField>
+  linkTypeOverrides?: Partial<RadioField>
+  openInNewTabOverrides?: Partial<CheckboxField>
+  required?: boolean
+  urlOverrides?: Partial<TextField>
 }
 
 type LinkField = (overrides?: LinkFieldOverrides) => GroupField
 
 export const linkField: LinkField = (overrides = {}) => {
   const {
+    groupOverrides = {},
     internalLinkOverrides = {},
     labelOverrides = {},
     linkTypeOverrides = {},
     openInNewTabOverrides = {},
+    required = false,
     urlOverrides = {},
   } = overrides
 
-  return {
-    fields: [
-      deepMerge<TextField, Partial<TextField>>(
-        {
-          label: 'Label',
-          name: 'label',
-          required: true,
-          type: 'text',
-        },
-        labelOverrides,
-      ),
-      deepMerge<RadioField, Partial<RadioField>>(
-        {
-          label: 'Type',
-          name: 'linkType',
-          options: [
-            {
-              label: 'Internal',
-              value: 'internal',
-            },
-            {
-              label: 'External',
-              value: 'external',
-            },
-          ],
-          required: true,
-          type: 'radio',
-        },
-        linkTypeOverrides,
-      ),
-      deepMerge<TextField, Partial<TextField>>(
-        {
-          admin: {
-            condition: (_, siblingData) => siblingData.linkType === 'external',
+  return deepMerge<GroupField>(
+    {
+      fields: [
+        deepMerge<TextField>(
+          {
+            label: 'Label',
+            name: 'label',
+            required,
+            type: 'text',
           },
-          label: 'URL',
-          name: 'url',
-          required: true,
-          type: 'text',
-        },
-        urlOverrides,
-      ),
-      deepMerge<RelationshipField, Partial<RelationshipField>>(
-        {
-          admin: {
-            condition: (_, siblingData) => siblingData.linkType === 'internal',
+          labelOverrides,
+        ),
+        deepMerge<RadioField>(
+          {
+            admin: {
+              condition: (_, siblingData) =>
+                required || Boolean(siblingData.label),
+            },
+            label: 'Type',
+            name: 'linkType',
+            options: [
+              {
+                label: 'Internal',
+                value: 'internal',
+              },
+              {
+                label: 'External',
+                value: 'external',
+              },
+            ],
+            required: true,
+            type: 'radio',
           },
-          label: 'Internal Reference',
-          name: 'internalLink',
-          relationTo: ['pages', 'articles'],
-          type: 'relationship',
-        },
-        internalLinkOverrides,
-      ),
-      deepMerge<CheckboxField, Partial<CheckboxField>>(
-        {
-          label: 'Open in new tab',
-          name: 'openInNewTab',
-          type: 'checkbox',
-        },
-        openInNewTabOverrides,
-      ),
-    ],
-    label: 'Link',
-    name: 'link',
-    type: 'group',
-  }
+          linkTypeOverrides,
+        ),
+        deepMerge<TextField>(
+          {
+            admin: {
+              condition: (_, siblingData) =>
+                (required || Boolean(siblingData.label)) &&
+                siblingData.linkType === 'external',
+            },
+            label: 'URL',
+            name: 'url',
+            required: true,
+            type: 'text',
+          },
+          urlOverrides,
+        ),
+        deepMerge<RelationshipField>(
+          {
+            admin: {
+              condition: (_, siblingData) =>
+                (required || Boolean(siblingData.label)) &&
+                siblingData.linkType === 'internal',
+            },
+            label: 'Internal Reference',
+            name: 'internalLink',
+            relationTo: ['pages', 'articles'],
+            required: true,
+            type: 'relationship',
+          },
+          internalLinkOverrides,
+        ),
+        deepMerge<CheckboxField>(
+          {
+            admin: {
+              condition: (_, siblingData) => Boolean(siblingData.label),
+            },
+            label: 'Open in new tab',
+            name: 'openInNewTab',
+            type: 'checkbox',
+          },
+          openInNewTabOverrides,
+        ),
+      ],
+      label: 'Link',
+      name: 'link',
+      type: 'group',
+    },
+    groupOverrides,
+  )
 }

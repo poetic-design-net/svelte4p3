@@ -10,7 +10,7 @@ type EyebrowField = (overrides?: EyebrowFieldOverrides) => [TextField]
 export const eyebrowField: EyebrowField = (overrides = {}) => {
   const { eyebrowOverrides = {} } = overrides
 
-  const eyebrowField = deepMerge<TextField, Partial<TextField>>(
+  const eyebrowField = deepMerge<TextField>(
     {
       label: 'Eyebrow',
       name: 'eyebrow',

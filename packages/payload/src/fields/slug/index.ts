@@ -16,7 +16,7 @@ type Slug = (
 export const slugField: Slug = (fieldToUse = 'title', overrides = {}) => {
   const { checkboxOverrides = {}, slugOverrides = {} } = overrides
 
-  const checkBoxField = deepMerge<CheckboxField, CheckboxField>(
+  const checkBoxField = deepMerge<CheckboxField>(
     {
       admin: {
         hidden: true,
@@ -29,7 +29,7 @@ export const slugField: Slug = (fieldToUse = 'title', overrides = {}) => {
     checkboxOverrides,
   )
 
-  const slugField = deepMerge<TextField, TextField>(
+  const slugField = deepMerge<TextField>(
     {
       admin: {
         components: {

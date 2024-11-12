@@ -14,10 +14,7 @@ export const hideFromIndexingField: HideFromIndexingField = (
 ) => {
   const { hideFromIndexingOverrides = {} } = overrides
 
-  const hideFromIndexingField = deepMerge<
-    CheckboxField,
-    Partial<CheckboxField>
-  >(
+  const hideFromIndexingField = deepMerge<CheckboxField>(
     {
       admin: {
         position: 'sidebar',

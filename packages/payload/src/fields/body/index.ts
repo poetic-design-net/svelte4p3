@@ -10,7 +10,7 @@ type BodyField = (overrides?: BodyFieldOverrides) => [TextField]
 export const bodyField: BodyField = overrides => {
   const { bodyOverrides = {} } = overrides ?? {}
 
-  const bodyField = deepMerge<TextField, Partial<TextField>>(
+  const bodyField = deepMerge<TextField>(
     {
       label: 'Body',
       name: 'body',
