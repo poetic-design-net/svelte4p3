@@ -74,10 +74,17 @@ const baseConfig: Config = {
     }),
     seoPlugin({
       collections: [Pages.slug, Articles.slug],
-      fieldOverrides: {
-        title: {
-          required: true,
-        },
+      fields: ({ defaultFields }) => {
+        return defaultFields.map(field => {
+          if ('name' in field && field.name === 'title') {
+            return {
+              ...field,
+              required: true,
+            }
+          }
+
+          return field
+        })
       },
       generateTitle: ({ doc }) =>
         isObject(doc) && 'title' in doc && typeof doc.title === 'string'

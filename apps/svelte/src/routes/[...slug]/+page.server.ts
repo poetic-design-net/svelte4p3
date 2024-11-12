@@ -5,10 +5,6 @@ import { configurePayload } from '@local/payload/configurePayload'
 
 import type { PageServerLoad } from './$types'
 
-// export const prerender = 'auto'
-// export const ssr = true
-// export const csr = false
-
 /** @type {import('some-adapter').Config} */
 export const config = {
   runtime: 'node',
@@ -25,6 +21,7 @@ export const load: PageServerLoad = async ({ params }) => {
   })
 
   const [doc] = data.docs
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (doc) {
     return doc
   }
