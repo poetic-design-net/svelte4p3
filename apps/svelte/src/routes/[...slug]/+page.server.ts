@@ -3,18 +3,18 @@ import { getPayload } from 'payload'
 
 import { configurePayload } from '@local/payload/configurePayload'
 
-import type { PageLoad } from './$types'
+import type { PageServerLoad } from './$types'
 
-export const prerender = 'auto'
-export const ssr = true
-export const csr = false
+// export const prerender = 'auto'
+// export const ssr = true
+// export const csr = false
 
 /** @type {import('some-adapter').Config} */
 export const config = {
   runtime: 'node',
 }
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
   const config = configurePayload()
   const payload = await getPayload({ config })
   const data = await payload.find({
@@ -25,9 +25,9 @@ export const load: PageLoad = async ({ params }) => {
   })
 
   const [doc] = data.docs
-  if (!doc) {
-    error(404, 'Not found')
+  if (doc) {
+    return doc
   }
 
-  return doc
+  error(404, 'Not found')
 }
