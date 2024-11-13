@@ -9,6 +9,7 @@
     "dev": "dotenvx run --convention=nextjs -- cross-env NODE_OPTIONS=\"--no-deprecation --inspect\" vite dev",
     "format": "prettier --write .",
     "lint": "eslint .",
+    "prepare": "svelte-kit sync",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },
