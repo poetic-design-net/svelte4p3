@@ -87,8 +87,8 @@ export interface Page {
         id?: string | null;
       }[]
     | null;
-  meta?: {
-    title?: string | null;
+  meta: {
+    title: string;
     description?: string | null;
     image?: (string | null) | Media;
   };
@@ -127,8 +127,8 @@ export interface Article {
   title: string;
   slug?: string | null;
   slugLock?: boolean | null;
-  meta?: {
-    title?: string | null;
+  meta: {
+    title: string;
     description?: string | null;
     image?: (string | null) | Media;
   };
