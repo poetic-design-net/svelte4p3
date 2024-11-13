@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.meta?.title} | Payload Monorepo Template</title>
+	<title>{data.meta.title} | Payload Monorepo Template</title>
 </svelte:head>
 
-<h1>{data.meta?.title}</h1>
+<h1>{data.meta.title}</h1>
