@@ -2,7 +2,6 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Config } from 'payload'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
@@ -41,17 +40,9 @@ const baseConfig: Config = {
     user: Users.slug,
   },
   collections: [Pages, Articles, Users, Media],
-  db:
-    env.PAYLOAD_PRIVATE_DATABASE_ENGINE === 'mongo'
-      ? mongooseAdapter({
-          url: env.PAYLOAD_PRIVATE_DATABASE_URI,
-        })
-      : sqliteAdapter({
-          client: {
-            // url: env.PAYLOAD_PRIVATE_DATABASE_URI,
-            url: `file:${path.join(dirname, 'local.db')}`,
-          },
-        }),
+  db: mongooseAdapter({
+    url: env.PAYLOAD_PRIVATE_DATABASE_URI,
+  }),
   editor: lexicalEditor(),
   globals: [NavigationMenu, Footer],
   plugins: [

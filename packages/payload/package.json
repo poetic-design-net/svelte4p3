@@ -32,7 +32,6 @@
     "@local/ui": "workspace:*",
     "@local/utils": "workspace:*",
     "@payloadcms/db-mongodb": "3.0.0-beta.129",
-    "@payloadcms/db-sqlite": "3.0.0-beta.129",
     "@payloadcms/graphql": "3.0.0-beta.129",
     "@payloadcms/live-preview-react": "3.0.0-beta.129",
     "@payloadcms/plugin-nested-docs": "3.0.0-beta.129",
