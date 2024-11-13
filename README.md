@@ -48,6 +48,8 @@ This project is designed to show how you can use Payload 3 on top of Next.js wit
 
 - [![Payload CMS][payload-shield]][payload-url]
 - [![Next][next-shield]][next-url]
+- [![Astro][astro-shield]][astro-url]
+- [![Svelte][svelte-shield]][svelte-url]
 - [![TypeScript][typescript-shield]][typescript-url]
 - [![TailwindCSS][tailwind-shield]][tailwind-url]
 
@@ -107,6 +109,7 @@ This project includes recommended VS Code extensions. While these extensions are
 │   ├── astro
 │   ├── docs
 │   ├── payload
+│   ├── svelte
 ├── packages
 │   ├── env
 │   ├── icons
@@ -140,6 +143,10 @@ This is a Storybook instance to help you create and preview your components as i
 #### payload
 
 This app serves two purposes. It includes Next.js and Payload 3. This is configured to serve as the Payload admin as well as a Next.js frontend. This is currently set up as the payload preview app and is also configured to run in hybrid rendering mode.
+
+#### svelte
+
+Svelte frontend application leveraging Payload 3 local API. Svelte is configured with Tailwind for styling. Additionally it is configured for dynamic routes using SSR. This can be optimized for production to use SSG in the build phase or SSR/SSG hybrid.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -209,7 +216,11 @@ Environment variables are already defined in each app. We use the dotnnvx packag
 
 ### Database
 
-By default, the local development uses SQLite for a database. This ensures minimal effort to get the project running locally the first time. It is also ready to use MongoDB. Feel free to change environment variables in the .env.development.local files to switch database engines.
+By default, the local development uses MongoDB for a database. The easiest way to spin up MongoDB is to run it in docker. Run the command below to start a MongoDB instance.
+
+```bash
+  docker run -d --name payload-monorepo -p 27017:27017 mongo
+```
 
 ### Modeling (Payload Config)
 
@@ -281,6 +292,10 @@ Project Link: [https://github.com/fusionary/turbo-payload](https://github.com/fu
 [typescript-url]: https://www.typescriptlang.org/
 [next-shield]: https://img.shields.io/badge/next.js-20232A?style=for-the-badge&logo=nextdotjs&logoColor=white
 [next-url]: https://nextjs.org/
+[astro-shield]: https://img.shields.io/badge/Astro-20232A?style=for-the-badge&logo=Astro&logoColor=BC52EE
+[astro-url]: https://astro.build
+[svelte-shield]: https://img.shields.io/badge/Svelte-20232A?style=for-the-badge&logo=Svelte&logoColor=FF3E00
+[svelte-url]: https://svelte.dev
 [payload-shield]: https://img.shields.io/badge/Payload%20CMS-20232A?style=for-the-badge&logo=payloadcms&logoColor=white
 [payload-url]: https://payloadcms.com/
 [tailwind-shield]: https://img.shields.io/badge/tailwindcss-20232A?style=for-the-badge&logo=tailwindcss&logoColor=0ea5e9
