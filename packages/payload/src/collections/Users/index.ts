@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 import { AdminAccess } from '@local/payload/access/AdminAccess'
 import { LoggedInAccess } from '@local/payload/access/LoggedInAccess'
 
-export const Users: CollectionConfig = {
+export const Users: CollectionConfig<'users'> = {
   access: {
     create: AdminAccess,
     read: LoggedInAccess,

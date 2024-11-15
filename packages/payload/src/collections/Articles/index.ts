@@ -10,7 +10,7 @@ import { titleField } from '@local/payload/fields/title'
 import { PopulatePublishDateHook } from '@local/payload/hooks/PopulatePublishDateHook'
 import { RevalidatePageHook } from '@local/payload/hooks/RevalidatePageHook'
 
-export const Articles: CollectionConfig = {
+export const Articles: CollectionConfig<'articles'> = {
   access: {
     create: AdminAccess,
     delete: AdminAccess,
