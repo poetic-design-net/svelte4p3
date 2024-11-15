@@ -13,7 +13,7 @@ export type ImageFieldOverrides = {
 type ImageField = (overrides?: ImageFieldOverrides) => [UploadField]
 
 export const imageField: ImageField = (overrides = {}) => {
-  const { imageOverrides = {}, mediaOverrides = {}, ...rest } = overrides
+  const { imageOverrides = {}, ...mediaOverrides } = overrides
   const {
     supportedFormats = [
       'image/jpeg',
@@ -23,20 +23,24 @@ export const imageField: ImageField = (overrides = {}) => {
     ],
   } = imageOverrides
 
-  const imageField = mediaField({
-    ...rest,
-    mediaOverrides: deepMerge(mediaOverrides, {
-      filterOptions: {
-        or: supportedFormats.map(fmt => ({
-          mimeType: {
-            contains: fmt,
+  const imageField = mediaField(
+    deepMerge(
+      {
+        mediaOverrides: {
+          filterOptions: {
+            or: supportedFormats.map(format => ({
+              mimeType: {
+                contains: format,
+              },
+            })),
           },
-        })),
+          label: 'Image',
+          name: 'image',
+        },
       },
-      label: 'Image',
-      name: 'image',
-    }),
-  })
+      mediaOverrides,
+    ),
+  )
 
   return [...imageField]
 }
