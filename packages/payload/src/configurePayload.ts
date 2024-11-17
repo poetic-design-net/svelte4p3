@@ -48,7 +48,7 @@ const baseConfig: Config = {
   plugins: [
     nestedDocsPlusPlugin({
       breadcrumbsFieldSlug: 'breadcrumbs',
-      collections: [Pages.slug],
+      collections: ['pages'],
       generateLabel: (_, doc) => doc.title as string,
       generateURL: docs =>
         docs.reduce((acc, doc) => `${acc}/${doc.slug as string}`, ''),
