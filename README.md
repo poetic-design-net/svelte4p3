@@ -71,7 +71,7 @@ Make sure you have the following tools installed on your system to run this proj
 
 #### Required
 
-- [![nvm][nvm-shield]][nvm-url] or [![Node 20+][node-shield]][node-url]
+- [![fnm][fnm-shield][fnm-url]] or [![nvm][nvm-shield]][nvm-url] or [![Node 20+][node-shield]][node-url]
 - [![pnpm][pnpm-shield]][pnpm-url]
 
 #### Optional
@@ -88,10 +88,10 @@ This project includes recommended VS Code extensions. While these extensions are
    git clone github.com/fusionary/turbo-payload.git
    ```
 
-2. Use recommended node version (if using NVM)
+2. Use recommended node version (if using FNM)
 
    ```sh
-   nvm use
+   fnm use
    ```
 
 3. Install node packages
@@ -310,6 +310,8 @@ Project Link: [https://github.com/fusionary/turbo-payload](https://github.com/fu
 [node-url]: https://nodejs.org/
 [nvm-shield]: https://img.shields.io/badge/nvm-20232A?style=for-the-badge&logoColor=ffffff
 [nvm-url]: https://github.com/nvm-sh/nvm
+[fnm-shield]: https://img.shields.io/badge/fnm-20232A?style=for-the-badge&logoColor=ffffff
+[fnm-url]: https://fnm.vercel.app/
 [pnpm-shield]: https://img.shields.io/badge/pnpm-20232A?style=for-the-badge&logo=pnpm&logoColor=f6922
 [pnpm-url]: https://pnpm.io/installation
 [vscode-shield]: https://img.shields.io/badge/vscode-20232A?style=for-the-badge&logo=visualstudiocode&logoColor=0098FF
