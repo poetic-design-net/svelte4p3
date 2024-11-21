@@ -2,7 +2,7 @@
 
 <!-- <br /> -->
 <div align="center">
-  <h3 align="center">Payload Monorepo Template (Payload | Next.js | Astro)</h3>
+  <h3 align="center">Payload Monorepo Template (Payload | Next.js | Astro | Svelte)</h3>
 
   <p align="center">
     A monorepo built on Payload 3 to demonstrate the use of frameworks other than Next.js for their frontend.
