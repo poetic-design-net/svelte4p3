@@ -19,7 +19,7 @@
     "@astrojs/react": "3.6.2",
     "@astrojs/tailwind": "^5.1.2",
     "@astrojs/ts-plugin": "^1.10.4",
-    "@dotenvx/dotenvx": "^1.23.0",
+    "@dotenvx/dotenvx": "^1.25.1",
     "@local/env": "workspace:*",
     "@local/eslint-config": "workspace:*",
     "@local/payload": "workspace:*",
@@ -27,16 +27,16 @@
     "@local/tailwind-config": "workspace:*",
     "@local/tsconfig": "workspace:*",
     "@local/types": "workspace:*",
-    "@types/node": "^20.17.6",
-    "astro": "^4.16.13",
+    "@types/node": "^20.17.8",
+    "astro": "^4.16.15",
     "cross-env": "^7.0.3",
-    "eslint": "^9.14.0",
-    "payload": "^3.0.2",
-    "prettier": "^3.3.3",
+    "eslint": "^9.15.0",
+    "payload": "^3.1.1",
+    "prettier": "^3.4.1",
     "react": "catalog:next15",
     "react-dom": "catalog:next15",
     "react-image-crop": "10.1.8",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   }
 }
