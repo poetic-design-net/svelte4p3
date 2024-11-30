@@ -1,4 +1,5 @@
-import path from 'node:path'
+// eslint-disable-next-line unicorn/prefer-node-protocol
+import path from 'path'
 import type { StorybookConfig } from '@storybook/nextjs'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import { ProvidePlugin } from 'webpack'
@@ -17,7 +18,8 @@ const config: StorybookConfig = {
       plugins: [
         ...(config.resolve?.plugins ?? []),
         new TsconfigPathsPlugin({
-          configFile: path.join(import.meta.dirname, '../tsconfig.json'),
+          // eslint-disable-next-line unicorn/prefer-module
+          configFile: path.join(__dirname, '../tsconfig.json'),
         }),
       ],
     }

@@ -1,8 +1,10 @@
-import path from 'node:path'
+/* eslint-disable unicorn/prefer-node-protocol */
+import path from 'path'
 import type { StorybookConfig } from '@storybook/nextjs'
 
 const getAbsolutePath = (packageName: string): string =>
-  path.dirname(import.meta.resolve(path.join(packageName, 'package.json')))
+  // eslint-disable-next-line unicorn/prefer-module
+  path.dirname(require.resolve(path.join(packageName, 'package.json')))
 
 export const config: StorybookConfig = {
   addons: [
@@ -28,7 +30,8 @@ export const config: StorybookConfig = {
               {
                 // Gets options from `postcss.config.js` in your project root
                 loader: 'postcss-loader',
-                options: { implementation: import.meta.resolve('postcss') },
+                // eslint-disable-next-line unicorn/prefer-module
+                options: { implementation: require.resolve('postcss') },
               },
             ],
           },

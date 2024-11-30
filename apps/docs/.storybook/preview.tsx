@@ -9,6 +9,10 @@ import '@local/ui/styles.css'
 
 const parameters = {
   ...basePreview.parameters,
+  cssVariables: {
+    defaultTheme: 'Default Theme',
+    files: {},
+  },
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   options: {
     ...basePreview.parameters?.options,
