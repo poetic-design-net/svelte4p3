@@ -9,6 +9,14 @@
       "stopAll": true
     },
     {
+      "configurations": ["Next", "Payload"],
+      "name": "Next + Payload",
+      "presentation": {
+        "group": "Next + Payload"
+      },
+      "stopAll": true
+    },
+    {
       "configurations": ["Svelte", "Payload"],
       "name": "Svelte + Payload",
       "presentation": {
@@ -22,6 +30,14 @@
       "command": "pnpm dev --filter astro...",
       "cwd": "${workspaceFolder}/",
       "name": "Astro",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node-terminal"
+    },
+    {
+      "command": "pnpm dev --filter next...",
+      "cwd": "${workspaceFolder}/",
+      "name": "Next",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "type": "node-terminal"
