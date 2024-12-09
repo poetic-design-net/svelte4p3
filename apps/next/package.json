@@ -26,6 +26,8 @@
     "@local/env": "workspace:*",
     "@local/payload": "workspace:*",
     "@local/ui": "workspace:*",
+    "@payloadcms/live-preview-react": "^3.5.0",
+    "@payloadcms/next": "^3.5.0",
     "babel-plugin-react-compiler": "^0.0.0",
     "cross-env": "^7.0.3",
     "next": "catalog:next15",
