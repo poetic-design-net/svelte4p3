@@ -108,6 +108,7 @@ This project includes recommended VS Code extensions. While these extensions are
 ├── apps
 │   ├── astro
 │   ├── docs
+│   ├── next
 │   ├── payload
 │   ├── svelte
 ├── packages
@@ -139,6 +140,10 @@ Astro frontend application leveraging Payload 3 local API. Astro is configured w
 #### docs
 
 This is a Storybook instance to help you create and preview your components as isolated stories.
+
+#### next
+
+This is a NextJS app that connects to the Payload CMS via Local API. This does not contain the the Payload admin. The purpose is to demonstrate a secondary NextJS site in addition to the one with Payload.
 
 #### payload
 
