@@ -25,8 +25,8 @@
     "@local/storybook-config": "workspace:*",
     "@local/tsconfig": "workspace:*",
     "@types/node": "^20.17.9",
-    "eslint": "^9.15.0",
-    "prettier": "^3.4.1",
+    "eslint": "^9.16.0",
+    "prettier": "^3.4.2",
     "typescript": "^5.7.2"
   }
 }
