@@ -60,14 +60,14 @@
     "@local/tsconfig": "workspace:*",
     "@storybook/addon-actions": "^8.4.7",
     "@storybook/react": "^8.4.7",
-    "@types/node": "^20.17.9",
+    "@types/node": "^20.17.10",
     "@types/prop-types": "^15.7.14",
     "@types/react": "catalog:next15",
     "eslint": "^9.16.0",
     "prettier": "^3.4.2",
     "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "peerDependencies": {
     "@local/icons": "workspace:*",

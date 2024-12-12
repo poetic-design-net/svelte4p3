@@ -31,14 +31,14 @@
     "@local/storybook-config": "workspace:*",
     "@local/tailwind-config": "workspace:*",
     "@local/tsconfig": "workspace:*",
-    "@types/node": "^20.17.9",
+    "@types/node": "^20.17.10",
     "aws-cdk-lib": "2.132.1",
     "constructs": "10.3.0",
     "eslint": "^9.16.0",
     "prettier": "^3.4.2",
     "react": "catalog:next15",
     "react-dom": "catalog:next15",
-    "sst": "^2.45.0",
+    "sst": "^2.45.1",
     "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2"
   }
