@@ -71,7 +71,7 @@ Make sure you have the following tools installed on your system to run this proj
 
 #### Required
 
-- [![fnm][fnm-shield][fnm-url]] or [![nvm][nvm-shield]][nvm-url] or [![Node 20+][node-shield]][node-url]
+- [![fnm][fnm-shield]][fnm-url] or [![nvm][nvm-shield]][nvm-url] or [![Node 20+][node-shield]][node-url]
 - [![pnpm][pnpm-shield]][pnpm-url]
 
 #### Optional
