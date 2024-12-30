@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import BlockRenderer from '$lib/components/blocks/BlockRenderer.svelte';
 
 	const { data }: { data: PageData } = $props();
 </script>
@@ -8,4 +9,6 @@
 	<title>{data.meta.title} | Payload Monorepo Template</title>
 </svelte:head>
 
-<h1>{data.meta.title}</h1>
+{#if data.layout}
+	<BlockRenderer blocks={data.layout} />
+{/if}

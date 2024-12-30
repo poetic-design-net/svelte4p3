@@ -75,7 +75,442 @@ export interface UserAuthOperations {
  */
 export interface Page {
   id: string;
+  /**
+   * Diese Seite als Startseite festlegen
+   */
+  isHome?: boolean | null;
   title: string;
+  /**
+   * Fügen Sie Inhaltsblöcke zu Ihrer Seite hinzu
+   */
+  layout: (
+    | {
+        /**
+         * Wählen Sie das Layout für diesen Hero-Bereich
+         */
+        layout: 'centered' | 'leftAligned' | 'split' | 'minimal';
+        /**
+         * Aktivieren Sie diese Option, um den Hero-Block im Vollbildmodus anzuzeigen
+         */
+        fullscreen?: boolean | null;
+        /**
+         * Die Hauptüberschrift des Hero-Blocks
+         */
+        headline: string;
+        /**
+         * Ein optionaler Untertitel
+         */
+        subheadline?: string | null;
+        /**
+         * Ein optionales Hintergrundbild
+         */
+        backgroundImage?: (string | null) | Media;
+        /**
+         * Wählen Sie den Typ des Hintergrunds
+         */
+        backgroundType?: ('color' | 'gradient' | 'image' | 'video') | null;
+        /**
+         * Optionen für das Hintergrund-Overlay
+         */
+        overlay?: {
+          /**
+           * Die Farbe des Overlays (Hex, RGB oder RGBA)
+           */
+          color?: string | null;
+          /**
+           * Die Deckkraft des Overlays in Prozent
+           */
+          opacity?: number | null;
+          /**
+           * Wählen Sie einen Gradienten für das Overlay
+           */
+          gradient?: ('none' | 'linear-to-b' | 'linear-to-t' | 'linear-to-r' | 'linear-to-l') | null;
+        };
+        /**
+         * Optionaler Akzent über der Überschrift
+         */
+        accent?: {
+          /**
+           * Der Haupttext des Akzents
+           */
+          text?: string | null;
+          /**
+           * Der Link für den Akzent
+           */
+          link?: string | null;
+          /**
+           * Der Text für den Akzent-Link
+           */
+          linkText?: string | null;
+        };
+        /**
+         * Optionale Call-to-Action Schaltfläche
+         */
+        cta?: {
+          text?: string | null;
+          link?: string | null;
+        };
+        /**
+         * Der Text für den "Mehr erfahren" Link
+         */
+        learnMoreText?: string | null;
+        /**
+         * Der Link für den "Mehr erfahren" Button
+         */
+        learnMoreLink?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }
+    | {
+        layout: 'default' | 'centered-2x2-grid' | 'three-col-accent' | 'three-col-icon';
+        /**
+         * Eine kleinere Überschrift über der Hauptüberschrift
+         */
+        accentHeadline?: string | null;
+        /**
+         * Die Hauptüberschrift des Features-Blocks
+         */
+        headline: string;
+        /**
+         * Ein optionaler Untertitel
+         */
+        subheadline?: string | null;
+        features?:
+          | {
+              icon: 'deploy' | 'ssl' | 'backup' | 'arrow-right';
+              title: string;
+              description: string;
+              /**
+               * Text für den optionalen Link
+               */
+              linkText?: string | null;
+              /**
+               * URL für den optionalen Link
+               */
+              linkUrl?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Ein optionales Bild für die rechte Seite
+         */
+        image?: (string | null) | Media;
+        /**
+         * Die Hintergrundfarbe des Blocks (Hex, RGB oder RGBA)
+         */
+        backgroundColor?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'features';
+      }
+    | {
+        /**
+         * Ein optionales Hintergrundbild für den CTA-Block
+         */
+        backgroundImage?: (string | null) | Media;
+        /**
+         * Einstellungen für das Hintergrundbild-Overlay
+         */
+        overlay?: {
+          /**
+           * Die Overlay-Farbe im HEX-Format (z.B. #000000)
+           */
+          color?: string | null;
+          /**
+           * Die Deckkraft des Overlays in Prozent
+           */
+          opacity?: number | null;
+        };
+        /**
+         * Wählen Sie das Layout für diesen CTA-Bereich
+         */
+        layout: 'default' | 'centered' | 'imageLeft' | 'imageRight' | 'imageTop' | 'imageBottom';
+        /**
+         * Aktivieren Sie diese Option, um den CTA-Block in voller Breite anzuzeigen
+         */
+        fullwidth?: boolean | null;
+        /**
+         * Die Hauptüberschrift des CTA-Blocks
+         */
+        heading: string;
+        /**
+         * Der beschreibende Text des CTA-Blocks
+         */
+        text?: string | null;
+        /**
+         * Einstellungen für den primären Button
+         */
+        primaryButton: {
+          /**
+           * Der Text des primären Buttons
+           */
+          text: string;
+          /**
+           * Der Link des primären Buttons
+           */
+          link: string;
+          /**
+           * Der Stil des primären Buttons
+           */
+          variant?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null;
+        };
+        /**
+         * Einstellungen für den sekundären Button
+         */
+        secondaryButton: {
+          /**
+           * Der Text des sekundären Buttons
+           */
+          text: string;
+          /**
+           * Der Link des sekundären Buttons
+           */
+          link: string;
+          /**
+           * Der Stil des sekundären Buttons
+           */
+          variant?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null;
+        };
+        image: {
+          /**
+           * Das Bild für den CTA-Block
+           */
+          file: string | Media;
+          /**
+           * Positionierung des Bildes im Block
+           */
+          position?: ('left' | 'right' | 'top' | 'bottom' | 'centered') | null;
+          /**
+           * Ausrichtung des Bildes innerhalb der Position
+           */
+          alignment?: ('offset' | 'center') | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'cta';
+      }
+    | {
+        /**
+         * Die Hauptüberschrift des Bento Grids
+         */
+        title?: string | null;
+        /**
+         * Ein optionaler Untertitel unter der Überschrift
+         */
+        subtitle?: string | null;
+        /**
+         * Die vier Elemente des Bento Grids
+         */
+        items?:
+          | {
+              /**
+               * Der Titel des Bento Elements
+               */
+              title: string;
+              /**
+               * Der Typ des Inhalts bestimmt das Layout
+               */
+              contentType?: ('default' | 'code') | null;
+              /**
+               * Die Beschreibung des Elements. Bei Code/API-Typ wird dies als Code-Snippet angezeigt.
+               */
+              description: string;
+              /**
+               * Ein optionales Bild für das Element. Bei Code/API-Typ wird dies ignoriert.
+               */
+              image?: (string | null) | Media;
+              /**
+               * Das Layout bestimmt die Größe des Elements im Grid
+               */
+              layout: 'large' | 'standard';
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Die Hintergrundfarbe des Blocks (Hex, RGB oder RGBA)
+         */
+        backgroundColor?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'bento-grid';
+      }
+    | {
+        layout: 'default' | 'centered' | 'full-width';
+        headline?: string | null;
+        description?: string | null;
+        backgroundImage?: (string | null) | Media;
+        links?:
+          | {
+              text: string;
+              url: string;
+              id?: string | null;
+            }[]
+          | null;
+        stats?:
+          | {
+              label: string;
+              value: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'intro';
+      }
+    | {
+        /**
+         * The main heading for the newsletter section
+         */
+        heading: string;
+        /**
+         * A brief description of what subscribers will receive
+         */
+        description: string;
+        features?:
+          | {
+              title: string;
+              description: string;
+              icon: 'calendar' | 'hand';
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Text for the subscribe button
+         */
+        buttonText: string;
+        /**
+         * Placeholder text for the email input
+         */
+        placeholderText: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'newsletter';
+      }
+    | {
+        layout: 'default';
+        title: string;
+        description?: string | null;
+        plans?:
+          | {
+              name: string;
+              price: string;
+              description?: string | null;
+              features?:
+                | {
+                    text: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              ctaText?: string | null;
+              ctaLink?: string | null;
+              isHighlighted?: boolean | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'pricing';
+      }
+    | {
+        layoutType: 'default';
+        title: string;
+        steps?:
+          | {
+              number: string;
+              title: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        image?: (string | null) | Media;
+        ctaText?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'howItWorks';
+      }
+    | {
+        layout?: ('default' | 'content-left-large-avatar' | 'grid-with-sidebar') | null;
+        testimonials?:
+          | {
+              name: string;
+              position: string;
+              testimonialheadline?: string | null;
+              image?: (string | null) | Media;
+              quote: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'testimonial';
+      }
+    | {
+        content?: {
+          title?: string | null;
+          description?: string | null;
+          backgroundImage?: (string | null) | Media;
+          cards?:
+            | {
+                number?: number | null;
+                text?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        sliderSettings?: {
+          /**
+           * Slider springt nach der letzten Karte wieder zur ersten
+           */
+          loop?: boolean | null;
+          autoplay?: {
+            enabled?: boolean | null;
+            /**
+             * Zeit in Millisekunden zwischen den Slides
+             */
+            delay?: number | null;
+            pauseOnHover?: boolean | null;
+          };
+          navigation?: ('arrows' | 'dots' | 'both' | 'none') | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'cardSlider';
+      }
+    | {
+        title: string;
+        description?: string | null;
+        layout: 'default';
+        articles: (string | Article)[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'blogPosts';
+      }
+    | {
+        title: string;
+        category?: string | null;
+        readTime?: string | null;
+        featuredImage?: (string | null) | Media;
+        content?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'contentSection';
+      }
+  )[];
   slug?: string | null;
   slugLock?: boolean | null;
   parent?: (string | null) | Page;
@@ -87,14 +522,17 @@ export interface Page {
         id?: string | null;
       }[]
     | null;
-  meta: {
-    title: string;
-    description?: string | null;
-    image?: (string | null) | Media;
-  };
   publishedDate?: string | null;
   hideFromIndexing?: boolean | null;
   pathname?: string | null;
+  meta: {
+    title: string;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -125,11 +563,32 @@ export interface Media {
 export interface Article {
   id: string;
   title: string;
+  category: 'news' | 'tutorial' | 'guide' | 'case-study';
+  featuredImage: string | Media;
+  readTime: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   slug?: string | null;
   slugLock?: boolean | null;
   meta: {
     title: string;
     description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (string | null) | Media;
   };
   publishedDate?: string | null;
@@ -254,7 +713,282 @@ export interface PayloadMigration {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  isHome?: T;
   title?: T;
+  layout?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              layout?: T;
+              fullscreen?: T;
+              headline?: T;
+              subheadline?: T;
+              backgroundImage?: T;
+              backgroundType?: T;
+              overlay?:
+                | T
+                | {
+                    color?: T;
+                    opacity?: T;
+                    gradient?: T;
+                  };
+              accent?:
+                | T
+                | {
+                    text?: T;
+                    link?: T;
+                    linkText?: T;
+                  };
+              cta?:
+                | T
+                | {
+                    text?: T;
+                    link?: T;
+                  };
+              learnMoreText?: T;
+              learnMoreLink?: T;
+              id?: T;
+              blockName?: T;
+            };
+        features?:
+          | T
+          | {
+              layout?: T;
+              accentHeadline?: T;
+              headline?: T;
+              subheadline?: T;
+              features?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    linkText?: T;
+                    linkUrl?: T;
+                    id?: T;
+                  };
+              image?: T;
+              backgroundColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        cta?:
+          | T
+          | {
+              backgroundImage?: T;
+              overlay?:
+                | T
+                | {
+                    color?: T;
+                    opacity?: T;
+                  };
+              layout?: T;
+              fullwidth?: T;
+              heading?: T;
+              text?: T;
+              primaryButton?:
+                | T
+                | {
+                    text?: T;
+                    link?: T;
+                    variant?: T;
+                  };
+              secondaryButton?:
+                | T
+                | {
+                    text?: T;
+                    link?: T;
+                    variant?: T;
+                  };
+              image?:
+                | T
+                | {
+                    file?: T;
+                    position?: T;
+                    alignment?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'bento-grid'?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    contentType?: T;
+                    description?: T;
+                    image?: T;
+                    layout?: T;
+                    id?: T;
+                  };
+              backgroundColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        intro?:
+          | T
+          | {
+              layout?: T;
+              headline?: T;
+              description?: T;
+              backgroundImage?: T;
+              links?:
+                | T
+                | {
+                    text?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              stats?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        newsletter?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              features?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              buttonText?: T;
+              placeholderText?: T;
+              id?: T;
+              blockName?: T;
+            };
+        pricing?:
+          | T
+          | {
+              layout?: T;
+              title?: T;
+              description?: T;
+              plans?:
+                | T
+                | {
+                    name?: T;
+                    price?: T;
+                    description?: T;
+                    features?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    ctaText?: T;
+                    ctaLink?: T;
+                    isHighlighted?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        howItWorks?:
+          | T
+          | {
+              layoutType?: T;
+              title?: T;
+              steps?:
+                | T
+                | {
+                    number?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              image?: T;
+              ctaText?: T;
+              id?: T;
+              blockName?: T;
+            };
+        testimonial?:
+          | T
+          | {
+              layout?: T;
+              testimonials?:
+                | T
+                | {
+                    name?: T;
+                    position?: T;
+                    testimonialheadline?: T;
+                    image?: T;
+                    quote?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cardSlider?:
+          | T
+          | {
+              content?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    backgroundImage?: T;
+                    cards?:
+                      | T
+                      | {
+                          number?: T;
+                          text?: T;
+                          id?: T;
+                        };
+                  };
+              sliderSettings?:
+                | T
+                | {
+                    loop?: T;
+                    autoplay?:
+                      | T
+                      | {
+                          enabled?: T;
+                          delay?: T;
+                          pauseOnHover?: T;
+                        };
+                    navigation?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        blogPosts?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              layout?: T;
+              articles?: T;
+              id?: T;
+              blockName?: T;
+            };
+        contentSection?:
+          | T
+          | {
+              title?: T;
+              category?: T;
+              readTime?: T;
+              featuredImage?: T;
+              content?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   slug?: T;
   slugLock?: T;
   parent?: T;
@@ -266,6 +1000,9 @@ export interface PagesSelect<T extends boolean = true> {
         label?: T;
         id?: T;
       };
+  publishedDate?: T;
+  hideFromIndexing?: T;
+  pathname?: T;
   meta?:
     | T
     | {
@@ -273,9 +1010,6 @@ export interface PagesSelect<T extends boolean = true> {
         description?: T;
         image?: T;
       };
-  publishedDate?: T;
-  hideFromIndexing?: T;
-  pathname?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -286,6 +1020,10 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface ArticlesSelect<T extends boolean = true> {
   title?: T;
+  category?: T;
+  featuredImage?: T;
+  readTime?: T;
+  content?: T;
   slug?: T;
   slugLock?: T;
   meta?:
@@ -385,11 +1123,59 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   createdAt?: T;
 }
 /**
+ * Konfigurieren Sie die Hauptnavigation der Website
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "navigation-menu".
  */
 export interface NavigationMenu {
   id: string;
+  /**
+   * Navigationselemente
+   */
+  items: {
+    /**
+     * Der Text, der im Menü angezeigt wird
+     */
+    label: string;
+    /**
+     * Der Link-Pfad (z.B. /produkte)
+     */
+    link: string;
+    /**
+     * Optional: Megamenü-Einstellungen
+     */
+    megamenu?: {
+      /**
+       * Aktivieren Sie das Megamenü für diesen Navigationspunkt
+       */
+      enabled?: boolean | null;
+      /**
+       * Spalten im Megamenü
+       */
+      columns?:
+        | {
+            /**
+             * Spaltenüberschrift
+             */
+            title: string;
+            items?:
+              | {
+                  label: string;
+                  link: string;
+                  /**
+                   * Optionale Beschreibung
+                   */
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -407,6 +1193,32 @@ export interface Footer {
  * via the `definition` "navigation-menu_select".
  */
 export interface NavigationMenuSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        megamenu?:
+          | T
+          | {
+              enabled?: T;
+              columns?:
+                | T
+                | {
+                    title?: T;
+                    items?:
+                      | T
+                      | {
+                          label?: T;
+                          link?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+            };
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -419,6 +1231,29 @@ export interface FooterSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SimpleButton".
+ */
+export interface SimpleButton {
+  text: string;
+  link: string;
+  style?: ('default' | 'secondary' | 'outline' | 'destructive' | 'ghost' | 'link' | 'accent') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'simpleButton';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SimpleImage".
+ */
+export interface SimpleImage {
+  image: string | Media;
+  altText: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'simpleImage';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
