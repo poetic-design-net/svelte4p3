@@ -86,9 +86,9 @@ export type BackgroundSettings = {
 
 export type HeroProps = {
   accent?: {
-    link?: string
-    linkText?: string
-    text?: string
+    link?: null | string
+    linkText?: null | string
+    text?: null | string
   }
   backgroundImage?: Media | string
   backgroundType?: 'color' | 'gradient' | 'image' | 'video'

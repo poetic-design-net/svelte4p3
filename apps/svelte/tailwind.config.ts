@@ -4,14 +4,7 @@ import { fontFamily } from 'tailwindcss/defaultTheme'
 const config: Config = {
   content: ['./src/**/*.{html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: ['class'],
-  safelist: [
-    'dark',
-    { pattern: /^lg:/ }, // Alle lg: Utilities
-    { pattern: /^md:/ }, // Alle md: Utilities
-    { pattern: /^sm:/ }, // Alle sm: Utilities
-    { pattern: /^xl:/ }, // Alle xl: Utilities
-    { pattern: /^2xl:/ }, // Alle 2xl: Utilities
-  ],
+  safelist: ['dark'],
   theme: {
     container: {
       center: true,

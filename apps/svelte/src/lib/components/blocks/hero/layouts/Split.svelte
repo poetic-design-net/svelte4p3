@@ -3,8 +3,8 @@
   import { theme } from '$lib/stores/theme';
   
   export let block: HeroProps;
-  export let backgroundImageUrl: string | undefined;
-  export let overlayOpacity: string;
+  export const backgroundImageUrl: string | undefined = undefined;
+  export const overlayOpacity: string = '';
 
   $: isDark = $theme === 'dark';
   $: textColor = isDark ? 'text-gray-200' : 'text-gray-900';

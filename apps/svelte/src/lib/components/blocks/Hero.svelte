@@ -75,7 +75,7 @@
     return pixelCount > 0 ? totalBrightness / pixelCount : 0.5;
   }
 
-  const layouts: Record<string, typeof Centered> = {
+  const layouts: Record<string, any> = {
     [HERO_LAYOUTS.CENTERED]: Centered,
     [HERO_LAYOUTS.LEFT_ALIGNED]: LeftAligned,
     [HERO_LAYOUTS.SPLIT]: Split,
@@ -115,11 +115,15 @@
         alt=""
         class="h-full w-full object-cover"
         on:load={(e) => {
-          const img = e.target as HTMLImageElement;
-          const brightness = getImageBrightness(img);
-          const parent = img.parentElement as HTMLElement;
-          parent.style.setProperty('--image-brightness', brightness.toString());
-          parent.classList.toggle('dark-text', brightness < 0.5);
+          if (e.target instanceof HTMLImageElement) {
+            const img = e.target;
+            const brightness = getImageBrightness(img);
+            const parent = img.parentElement;
+            if (parent instanceof HTMLElement) {
+              parent.style.setProperty('--image-brightness', brightness.toString());
+              parent.classList.toggle('dark-text', brightness < 0.5);
+            }
+          }
         }}
       />
     </div>

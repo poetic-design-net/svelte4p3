@@ -2,13 +2,13 @@
 	import type { PageData } from './$types';
 	import BlockRenderer from '$lib/components/blocks/BlockRenderer.svelte';
 
-	const { data }: { data: PageData } = $props();
+	export let data: PageData;
 </script>
 
 <svelte:head>
-	<title>{data.meta.title} | Payload Monorepo Template</title>
+	<title>{data.meta?.title ?? 'Payload Monorepo Template'}</title>
 </svelte:head>
 
-{#if data.layout}
+{#if data.layout && Array.isArray(data.layout)}
 	<BlockRenderer blocks={data.layout} />
 {/if}

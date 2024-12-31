@@ -22,6 +22,7 @@
   {:else if block.videoType === 'upload' && block.videoFile}
     <video controls>
       <source src={block.videoFile.url} type={block.videoFile.mimeType} />
+      <track kind="captions" src="" label="English" srclang="en" default />
       Your browser does not support the video tag.
     </video>
   {/if}

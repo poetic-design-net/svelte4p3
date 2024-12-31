@@ -35,7 +35,7 @@
   <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
     <!-- Logo -->
     <div class="flex lg:flex-1">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">Ihr Unternehmen</span>
         <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="">
       </a>
@@ -59,8 +59,10 @@
     <div class="hidden lg:flex lg:gap-x-12">
       {#if navigation}
         {#each navigation as item}
-          <div 
+          <div
             class="relative group"
+            role="menuitem"
+            tabindex="0"
             on:mouseenter={() => handleMouseEnter(item.label)}
             on:mouseleave={handleMouseLeave}
           >
@@ -71,8 +73,9 @@
               {item.label}
             </a>
             {#if item.megamenu?.enabled}
-              <div 
+              <div
                 class="absolute top-full left-1/2 -translate-x-1/2 h-8 w-[140%]"
+                role="presentation"
                 on:mouseenter={() => handleMouseEnter(item.label)}
               />
               {#if hoveredItem === item.label}
@@ -86,7 +89,7 @@
 
     <!-- Desktop sign in -->
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="#" class={linkClasses}>
+      <a href="/login" class={linkClasses}>
         Anmelden <span aria-hidden="true">&rarr;</span>
       </a>
     </div>

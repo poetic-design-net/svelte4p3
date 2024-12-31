@@ -24,6 +24,7 @@
   "devDependencies": {
     "@iconify/svelte": "^4.1.0",
     "@local/prettier-config": "workspace:*",
+    "@sveltejs/adapter-node": "^5.2.11",
     "@turbo/gen": "^2.3.3",
     "bits-ui": "^0.22.0",
     "class-variance-authority": "^0.7.1",
